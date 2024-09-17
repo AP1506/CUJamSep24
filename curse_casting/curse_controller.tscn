@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bfitc7nf8btyu"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_controller.gd" id="1_l1rnd"]
+
+[node name="CurseController" type="Node"]
+script = ExtResource("1_l1rnd")
