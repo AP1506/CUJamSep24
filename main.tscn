@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ox7pjwuvkx1c"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
+[ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
+[ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_ek3vr")
+
+[node name="CurseController" parent="." node_paths=PackedStringArray("curse_screen") instance=ExtResource("2_f20hy")]
+curse_screen = NodePath("../CurseScreen")
+
+[node name="CurseScreen" parent="." node_paths=PackedStringArray("curse_controller") instance=ExtResource("3_0ite1")]
+visible = false
+curse_controller = NodePath("../CurseController")

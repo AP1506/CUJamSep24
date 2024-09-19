@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b250x12k1kl2g"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_wmfid"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/curse_button.tscn" id="2_rj3hp"]
+
+[node name="DrawingTest" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_wmfid")
+elements = [NodePath("CurseButton")]
+
+[node name="CurseButton" parent="." instance=ExtResource("2_rj3hp")]
