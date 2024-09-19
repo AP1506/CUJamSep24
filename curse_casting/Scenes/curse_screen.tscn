@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfw05jiujfnc7"]
+
+[ext_resource type="Script" path="res://curse_casting/Scripts/curse_screen.gd" id="1_k8blg"]
+
+[node name="CurseScreen" type="Node2D"]
+script = ExtResource("1_k8blg")

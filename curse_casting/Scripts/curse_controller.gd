@@ -6,6 +6,8 @@ enum CurseState {ACTIVE, NON_ACTIVE}
 var state: int = CurseState.NON_ACTIVE
 var text: String = ""
 
+@export var curse_screen : Node
+
 func _ready():
 	set_process_unhandled_key_input(false)
 
@@ -23,6 +25,10 @@ func _process(delta):
 		# Check if text is a correct curse
 		if valid_curse(text.to_lower()):
 			print("Cast " + text)
+			curse_screen.set_curse(text.to_lower())
+			curse_screen.visible = true
+			set_process_unhandled_key_input(false)
+			set_process(false)
 		text = ""
 
 func _unhandled_key_input(event):
