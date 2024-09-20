@@ -53,7 +53,8 @@ func set_curse(curse: String):
 	
 	if currentElement is CurseButton:
 		var currentButton : CurseButton = currentElement
-		currentButton.curse_press.connect(_curse_pressed)
+		if (currentButton.curse_press.is_connected(_curse_pressed)):
+			currentButton.curse_press.connect(_curse_pressed)
 	
 	set_process_unhandled_input(true)
 
@@ -79,4 +80,5 @@ func set_next_element():
 	
 	if currentElement is CurseButton:
 		var currentButton : CurseButton = currentElement
-		currentButton.curse_press.connect(_curse_pressed)
+		if (currentButton.curse_press.is_connected(_curse_pressed)):
+			currentButton.curse_press.connect(_curse_pressed)
