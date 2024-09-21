@@ -70,8 +70,7 @@ func set_next_element():
 		set_process_unhandled_input(false)
 		visible = false
 		
-		curse_controller.set_process_unhandled_key_input(true)
-		curse_controller.set_process(true)
+		curse_controller.curse_state = curse_controller.CurseState.ACTIVE
 		return
 		# End the game and return from this function
 	
