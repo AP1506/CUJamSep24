@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://6ax1s7gixsdo"]
 
-[ext_resource type="Texture2D" uid="uid://8ywx3sas5083" path="res://Assets/TemporaryButton.png" id="1_b5rsq"]
-[ext_resource type="Texture2D" uid="uid://cifhbvrknb7fu" path="res://Assets/TemporaryButtonPressed.png" id="2_elitj"]
-[ext_resource type="Texture2D" uid="uid://yu3qf8vsxl6d" path="res://Assets/TemporaryButtonHover.png" id="3_ly2ly"]
+[ext_resource type="Texture2D" uid="uid://8ywx3sas5083" path="res://assets/curse_casting/TemporaryButton.png" id="1_b5rsq"]
+[ext_resource type="Texture2D" uid="uid://cifhbvrknb7fu" path="res://assets/curse_casting/TemporaryButtonPressed.png" id="2_elitj"]
+[ext_resource type="Texture2D" uid="uid://yu3qf8vsxl6d" path="res://assets/curse_casting/TemporaryButtonHover.png" id="3_ly2ly"]
 [ext_resource type="Script" path="res://curse_casting/Scripts/curse_button.gd" id="4_5ddxw"]
 
 [node name="CurseButton" type="TextureButton"]

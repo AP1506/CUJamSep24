@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8ywx3sas5083"
-path="res://.godot/imported/TemporaryButton.png-58e3d4519264d0043a1fb9570709ab05.ctex"
+uid="uid://cmylrgyh5jpdd"
+path="res://.godot/imported/TemporarySliderStartHover.png-b12b9ccad19c670358c8fb5763736d98.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/TemporaryButton.png"
-dest_files=["res://.godot/imported/TemporaryButton.png-58e3d4519264d0043a1fb9570709ab05.ctex"]
+source_file="res://assets/curse_casting/TemporarySliderStartHover.png"
+dest_files=["res://.godot/imported/TemporarySliderStartHover.png-b12b9ccad19c670358c8fb5763736d98.ctex"]
 
 [params]
 
