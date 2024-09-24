@@ -78,6 +78,9 @@ func set_curse(curse: String):
 		"ward":
 			currentDrawing = preload("res://curse_casting/curse_drawings/fire/drawing_ward.tscn").instantiate()
 			add_child(currentDrawing)
+		"dread":
+			currentDrawing = preload("res://curse_casting/curse_drawings/fire/drawing_dread.tscn").instantiate()
+			add_child(currentDrawing)
 		"drag":
 			currentDrawing = preload("res://curse_casting/curse_drawings/ice/drawing_drag.tscn").instantiate()
 			add_child(currentDrawing)
