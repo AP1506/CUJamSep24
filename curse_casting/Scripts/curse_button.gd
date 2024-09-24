@@ -21,6 +21,8 @@ func _ready():
 	
 	# Store normal texture to switch back and forth
 	actual_texture_hover = texture_hover
+	
+	release_focus()
 
 func _input(event):
 	# Stop propagating the pressed input event for non mouse clicks
@@ -34,3 +36,7 @@ func _input(event):
 	if Input.is_action_just_released("curse_drawing_press") && is_hovered():
 		curse_press.emit()
 		get_viewport().set_input_as_handled()
+	elif Input.is_action_just_released("curse_drawing_press") && button_pressed:
+		var new_pressed_event = event.duplicate()
+		new_pressed_event.pressed = true
+		Input.parse_input_event(new_pressed_event)
