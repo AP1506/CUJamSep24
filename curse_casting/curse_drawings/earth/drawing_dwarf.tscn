@@ -1,0 +1,67 @@
+[gd_scene load_steps=5 format=3 uid="uid://bbop3s4jqf8gh"]
+
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="1_1pik4"]
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_iions"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="2_56fml"]
+
+[sub_resource type="Curve2D" id="Curve2D_m7xac"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 209, 555, -212.851, -166.798, 212.851, 166.798, 518, 481, 0, 0, 0, 0, 903, 334, 214.187, -158.75, -214.187, 158.75, 500, 205, 0, 0, 0, 0, 227, 102)
+}
+point_count = 5
+
+[node name="DrawingDwarf" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_iions")
+elements = [NodePath("CurseButton"), NodePath("CurseButton2"), NodePath("CurseButton3"), NodePath("CurseButton4"), NodePath("CurseButton5"), NodePath("CurseButton7"), NodePath("CurseButton6"), NodePath("CurseSlider"), NodePath("CurseButton")]
+
+[node name="CurseButton" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 103.0
+offset_top = 39.0
+offset_right = 653.0
+offset_bottom = 587.0
+
+[node name="CurseButton2" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 360.0
+offset_top = 85.0
+offset_right = 910.0
+offset_bottom = 633.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton3" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 640.0
+offset_top = 153.0
+offset_right = 1190.0
+offset_bottom = 701.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton4" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 858.0
+offset_top = 289.0
+offset_right = 1408.0
+offset_bottom = 837.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton5" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 631.0
+offset_top = 426.0
+offset_right = 1181.0
+offset_bottom = 974.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton7" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 349.0
+offset_top = 498.0
+offset_right = 899.0
+offset_bottom = 1046.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton6" parent="." instance=ExtResource("1_1pik4")]
+offset_left = 84.0001
+offset_top = 498.0
+offset_right = 634.0
+offset_bottom = 1046.0
+
+[node name="CurseSlider" parent="." instance=ExtResource("2_56fml")]
+curve = SubResource("Curve2D_m7xac")
+
+[editable path="CurseSlider"]

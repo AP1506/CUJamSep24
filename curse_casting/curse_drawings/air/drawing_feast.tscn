@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://cr0dxbw5ps3to"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_8n4jr"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="1_lurqx"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="2_lyol3"]
+
+[sub_resource type="Curve2D" id="Curve2D_8pes4"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 161, 372, -119, 31, 119, -31, 617, 348, 4, 115, -4, -115, 870, 154, 0, 0, 0, 0, 637, 49)
+}
+point_count = 4
+
+[sub_resource type="Curve2D" id="Curve2D_syamx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 82, 42, -1, -132, 1, 132, -143, 139, -170, -57, 170, 57, 130, 339, 0, 0, 0, 0, 537, 384)
+}
+point_count = 4
+
+[node name="DrawingFeast" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_8n4jr")
+elements = [NodePath("CurseButton"), NodePath("CurseSlider"), NodePath("CurseButton2"), NodePath("CurseSlider2"), NodePath("CurseButton3")]
+
+[node name="CurseButton" parent="." instance=ExtResource("1_lurqx")]
+offset_left = 28.0
+offset_top = 288.0
+offset_right = 578.0
+offset_bottom = 836.0
+
+[node name="CurseSlider" parent="." instance=ExtResource("2_lyol3")]
+curve = SubResource("Curve2D_8pes4")
+
+[node name="CurseButton2" parent="." instance=ExtResource("1_lurqx")]
+offset_left = 564.0
+offset_top = 28.0
+offset_right = 1114.0
+offset_bottom = 576.0
+scale = Vector2(0.115, 0.112)
+
+[node name="CurseButton3" parent="." instance=ExtResource("1_lurqx")]
+offset_left = 1014.0
+offset_top = 299.0
+offset_right = 1564.0
+offset_bottom = 847.0
+
+[node name="CurseSlider2" parent="." instance=ExtResource("2_lyol3")]
+position = Vector2(475, 8)
+curve = SubResource("Curve2D_syamx")
+
+[editable path="CurseSlider"]
+[editable path="CurseSlider2"]
