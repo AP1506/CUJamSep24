@@ -72,8 +72,35 @@ func set_curse(curse: String):
 		"tear":
 			currentDrawing = preload("res://curse_casting/curse_drawings/drawing_tear.tscn").instantiate()
 			add_child(currentDrawing)
+		"swear":
+			currentDrawing = preload("res://curse_casting/curse_drawings/drawing_swear.tscn").instantiate()
+			add_child(currentDrawing)
 		"taste":
 			currentDrawing = preload("res://curse_casting/curse_drawings/drawing_test.tscn").instantiate()
+			add_child(currentDrawing)
+		"ward":
+			currentDrawing = preload("res://curse_casting/curse_drawings/fire/drawing_ward.tscn").instantiate()
+			add_child(currentDrawing)
+		"dread":
+			currentDrawing = preload("res://curse_casting/curse_drawings/fire/drawing_dread.tscn").instantiate()
+			add_child(currentDrawing)
+		"drag":
+			currentDrawing = preload("res://curse_casting/curse_drawings/ice/drawing_drag.tscn").instantiate()
+			add_child(currentDrawing)
+		"scarf":
+			currentDrawing = preload("res://curse_casting/curse_drawings/ice/drawing_scarf.tscn").instantiate()
+			add_child(currentDrawing)
+		"axed":
+			currentDrawing = preload("res://curse_casting/curse_drawings/earth/drawing_axed.tscn").instantiate()
+			add_child(currentDrawing)
+		"dwarf":
+			currentDrawing = preload("res://curse_casting/curse_drawings/earth/drawing_dwarf.tscn").instantiate()
+			add_child(currentDrawing)
+		"east":
+			currentDrawing = preload("res://curse_casting/curse_drawings/air/drawing_east.tscn").instantiate()
+			add_child(currentDrawing)
+		"feast":
+			currentDrawing = preload("res://curse_casting/curse_drawings/air/drawing_feast.tscn").instantiate()
 			add_child(currentDrawing)
 		_:
 			push_error("Failed to set curse drawing for curse " + curse)

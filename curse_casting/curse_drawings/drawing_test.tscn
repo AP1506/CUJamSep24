@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_wmfid"]
 [ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="2_rj3hp"]
-[ext_resource type="PackedScene" uid="uid://ct2ylfl8pdkam" path="res://curse_casting/Scenes/curse_slider.tscn" id="3_sydsg"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="3_sydsg"]
 
 [sub_resource type="Curve2D" id="Curve2D_osln6"]
 _data = {
@@ -34,3 +34,5 @@ offset_bottom = 608.0
 
 [node name="CurseSlider" parent="." instance=ExtResource("3_sydsg")]
 curve = SubResource("Curve2D_osln6")
+
+[editable path="CurseSlider"]

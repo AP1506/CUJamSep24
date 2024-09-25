@@ -1,0 +1,71 @@
+[gd_scene load_steps=8 format=3 uid="uid://bsjy5pns67eek"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_u7dog"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="2_p2run"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="3_nmwsl"]
+
+[sub_resource type="Curve2D" id="Curve2D_d1h6y"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 323, 338, 0, 0, 0, 0, 333, 727)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_iabv0"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 332, 722, 0, 0, 0, 0, 325, 333)
+}
+point_count = 2
+
+[sub_resource type="Curve2D" id="Curve2D_8e74l"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 82, 178, -76.1438, 27.1618, 76.1438, -27.1618, 183, 589, -136.154, -10.6787, 136.154, 10.6787, 270, 136, -100.113, -12.0136, 100.113, 12.0136, 376, 585, 0, 0, 0, 0, 475, 160)
+}
+point_count = 5
+
+[sub_resource type="Curve2D" id="Curve2D_a1jjx"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 92, 167, -113.137, -4.24264, 113.137, 4.24264, 167, 555, -160.801, 2.09518, 160.801, -2.09518, 260, 144, -103.238, 7.07107, 103.238, -7.07107, 386, 547, 0, 0, 0, 0, 501, 130)
+}
+point_count = 5
+
+[node name="DrawingDread" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_u7dog")
+elements = [NodePath("CurseButton"), NodePath("CurseSlider"), NodePath("CurseButton3"), NodePath("CurseSlider4"), NodePath("CurseSlider3"), NodePath("CurseButton3"), NodePath("CurseSlider2"), NodePath("CurseButton2")]
+
+[node name="CurseButton" parent="." instance=ExtResource("2_p2run")]
+offset_left = 28.0
+offset_top = 40.0
+offset_right = 578.0
+offset_bottom = 588.0
+
+[node name="CurseButton3" parent="." instance=ExtResource("2_p2run")]
+offset_left = 504.0
+offset_top = 53.0
+offset_right = 1054.0
+offset_bottom = 601.0
+
+[node name="CurseSlider4" parent="." instance=ExtResource("3_nmwsl")]
+position = Vector2(254, -146)
+curve = SubResource("Curve2D_d1h6y")
+
+[node name="CurseSlider3" parent="." instance=ExtResource("3_nmwsl")]
+position = Vector2(254, -146)
+curve = SubResource("Curve2D_iabv0")
+
+[node name="CurseSlider2" parent="." instance=ExtResource("3_nmwsl")]
+position = Vector2(541, 12)
+curve = SubResource("Curve2D_8e74l")
+
+[node name="CurseButton2" parent="." instance=ExtResource("2_p2run")]
+offset_left = 996.0
+offset_top = 57.0
+offset_right = 1546.0
+offset_bottom = 605.0
+
+[node name="CurseSlider" parent="." instance=ExtResource("3_nmwsl")]
+curve = SubResource("Curve2D_a1jjx")
+
+[editable path="CurseSlider4"]
+[editable path="CurseSlider3"]
+[editable path="CurseSlider2"]
+[editable path="CurseSlider"]

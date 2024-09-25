@@ -1,0 +1,44 @@
+[gd_scene load_steps=5 format=3 uid="uid://b1v3lmqegxtge"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_ge1n1"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="2_w10ul"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="3_vj3vw"]
+
+[sub_resource type="Curve2D" id="Curve2D_hes1e"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 173, 346, 0, 0, 0, 0, 531, 350)
+}
+point_count = 2
+
+[node name="DrawingEast" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_ge1n1")
+elements = [NodePath("CurseButton"), NodePath("CurseSlider"), NodePath("CurseButton2"), NodePath("CurseSlider2"), NodePath("CurseButton3")]
+
+[node name="CurseButton" parent="." instance=ExtResource("2_w10ul")]
+offset_left = 28.0
+offset_top = 288.0
+offset_right = 578.0
+offset_bottom = 836.0
+
+[node name="CurseSlider" parent="." instance=ExtResource("3_vj3vw")]
+curve = SubResource("Curve2D_hes1e")
+
+[node name="CurseButton2" parent="." instance=ExtResource("2_w10ul")]
+offset_left = 563.0
+offset_top = 329.0
+offset_right = 1113.0
+offset_bottom = 877.0
+scale = Vector2(0.115, 0.112)
+
+[node name="CurseSlider2" parent="." instance=ExtResource("3_vj3vw")]
+position = Vector2(475, 8)
+curve = SubResource("Curve2D_hes1e")
+
+[node name="CurseButton3" parent="." instance=ExtResource("2_w10ul")]
+offset_left = 1014.0
+offset_top = 299.0
+offset_right = 1564.0
+offset_bottom = 847.0
+
+[editable path="CurseSlider"]
+[editable path="CurseSlider2"]

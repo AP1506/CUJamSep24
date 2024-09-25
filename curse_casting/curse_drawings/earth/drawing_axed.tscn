@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://1g6qichudeak"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_ov62d"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="2_ldbjg"]
+
+[node name="DrawingAxed" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_ov62d")
+elements = [NodePath("CurseButton"), NodePath("CurseButton2"), NodePath("CurseButton3"), NodePath("CurseButton4"), NodePath("CurseButton5"), NodePath("CurseButton6")]
+
+[node name="CurseButton" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 103.0
+offset_top = 39.0
+offset_right = 653.0
+offset_bottom = 587.0
+
+[node name="CurseButton2" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 360.0
+offset_top = 85.0
+offset_right = 910.0
+offset_bottom = 633.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton3" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 548.0
+offset_top = 123.0
+offset_right = 1098.0
+offset_bottom = 671.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton4" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 740.0
+offset_top = 234.0
+offset_right = 1290.0
+offset_bottom = 782.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton5" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 895.0
+offset_top = 379.0
+offset_right = 1445.0
+offset_bottom = 927.0
+scale = Vector2(0.13, 0.127)
+
+[node name="CurseButton6" parent="." instance=ExtResource("2_ldbjg")]
+offset_left = 1005.0
+offset_top = 509.0
+offset_right = 1555.0
+offset_bottom = 1057.0

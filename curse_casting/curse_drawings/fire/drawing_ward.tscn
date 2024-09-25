@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://byp54awy82alf"]
+
+[ext_resource type="Script" path="res://curse_casting/curse_drawings/curse_drawing.gd" id="1_x6kxn"]
+[ext_resource type="PackedScene" uid="uid://6ax1s7gixsdo" path="res://curse_casting/Scenes/curse_button.tscn" id="2_3oask"]
+[ext_resource type="PackedScene" uid="uid://drd81t2sni56j" path="res://curse_casting/Scenes/curse_slider.tscn" id="3_rg3qr"]
+
+[sub_resource type="Curve2D" id="Curve2D_gilcc"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 323, 338, -269.696, 163.315, 269.696, -163.315, 925, 520, 0, 0, 0, 0, 849, 227)
+}
+point_count = 3
+
+[node name="DrawingWard" type="Node2D" node_paths=PackedStringArray("elements")]
+script = ExtResource("1_x6kxn")
+elements = [NodePath("CurseButton"), NodePath("CurseButton2"), NodePath("CurseSlider"), NodePath("CurseButton4")]
+
+[node name="CurseButton" parent="." instance=ExtResource("2_3oask")]
+offset_left = 28.0
+offset_top = 40.0
+offset_right = 578.0
+offset_bottom = 588.0
+
+[node name="CurseButton2" parent="." instance=ExtResource("2_3oask")]
+offset_left = 157.0
+offset_top = 203.0
+offset_right = 707.0
+offset_bottom = 751.0
+
+[node name="CurseButton4" parent="." instance=ExtResource("2_3oask")]
+offset_left = 728.0
+offset_top = 143.0
+offset_right = 1278.0
+offset_bottom = 693.0
+scale = Vector2(0.115, 0.112)
+
+[node name="CurseSlider" parent="." instance=ExtResource("3_rg3qr")]
+curve = SubResource("Curve2D_gilcc")
+
+[editable path="CurseSlider"]
