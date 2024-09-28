@@ -55,7 +55,7 @@ func _process(delta):
 			
 			# Set up the curse screen
 			curse_screen.set_curse(text.to_lower())
-			curse_screen.visible = true
+			curse_screen.make_visible(true)
 			
 			# Disable other processes
 			world.process_mode = Node.PROCESS_MODE_DISABLED

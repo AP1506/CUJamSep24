@@ -3,6 +3,7 @@ extends Node2D
 
 @export var curse_controller : Node
 @export var world : Node
+@export var bg : Node
 
 var currentDrawing : CurseDrawing
 var currentElemIndex: int
@@ -126,6 +127,10 @@ func set_curse(curse: String):
 	
 	set_process_unhandled_input(true)
 
+func make_visible(value):
+	visible = value
+	bg.visible = value
+
 func _curse_pressed():
 	print("Success")
 	
@@ -176,7 +181,7 @@ func set_next_element():
 	# All elements pressed so end the game and return from this function
 	if currentElemIndex >= currentDrawing.elements.size():
 		set_process_unhandled_input(false)
-		visible = false
+		make_visible(false)
 		
 		# Turn on other processes
 		curse_controller.curse_state = curse_controller.CurseState.ACTIVE
