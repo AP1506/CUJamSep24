@@ -20,16 +20,25 @@ var typing_state: int = CurseState.NON_ACTIVE:
 	set(value):
 		if value == CurseState.ACTIVE:
 			set_process_unhandled_key_input(true)
+			player.process_mode = Node.PROCESS_MODE_DISABLED
 		elif value == CurseState.NON_ACTIVE:
 			set_process_unhandled_key_input(false)
+			player.process_mode = Node.PROCESS_MODE_INHERIT
 		typing_state = value
 
-var text: String = ""
+var text: String = "":
+	set(value):
+		text = value
+		display.text = value
 
 @export var curse_screen : Node
+@export var display : Label
+@export var player : Node
+@export var world : Node
 
 func _ready():
 	set_process_unhandled_key_input(false)
+	display.text = ""
 
 # Curse input is handled here
 func _process(delta):
@@ -43,8 +52,13 @@ func _process(delta):
 		# Check if text is a correct curse
 		if valid_curse(text.to_lower()):
 			print("Cast " + text)
+			
+			# Set up the curse screen
 			curse_screen.set_curse(text.to_lower())
 			curse_screen.visible = true
+			
+			# Disable other processes
+			world.process_mode = Node.PROCESS_MODE_DISABLED
 			curse_state = CurseState.NON_ACTIVE
 		text = ""
 

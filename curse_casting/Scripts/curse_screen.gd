@@ -2,6 +2,7 @@
 extends Node2D
 
 @export var curse_controller : Node
+@export var world : Node
 
 var currentDrawing : CurseDrawing
 var currentElemIndex: int
@@ -177,7 +178,9 @@ func set_next_element():
 		set_process_unhandled_input(false)
 		visible = false
 		
+		# Turn on other processes
 		curse_controller.curse_state = curse_controller.CurseState.ACTIVE
+		world.process_mode = Node.PROCESS_MODE_INHERIT
 		return
 	
 	currentElement = currentDrawing.elements[currentElemIndex]

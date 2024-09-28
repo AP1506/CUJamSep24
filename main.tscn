@@ -1,15 +1,51 @@
-[gd_scene load_steps=4 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=6 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
 [ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
+[ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_376jh"]
+[ext_resource type="Script" path="res://camera_2d.gd" id="4_woa15"]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
 
-[node name="CurseController" parent="." node_paths=PackedStringArray("curse_screen") instance=ExtResource("2_f20hy")]
+[node name="CurseController" parent="." node_paths=PackedStringArray("curse_screen", "display", "player", "world") instance=ExtResource("2_f20hy")]
 curse_screen = NodePath("../CurseScreen")
+display = NodePath("../UI/Label")
+player = NodePath("../World/SubViewport/Player")
+world = NodePath("../World")
 
-[node name="CurseScreen" parent="." node_paths=PackedStringArray("curse_controller") instance=ExtResource("3_0ite1")]
+[node name="World" type="SubViewportContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="World"]
+handle_input_locally = false
+size = Vector2i(1152, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="World/SubViewport"]
+script = ExtResource("4_woa15")
+
+[node name="Player" parent="World/SubViewport" instance=ExtResource("4_376jh")]
+
+[node name="UI" type="BoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="Label" type="Label" parent="UI"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "test text"
+uppercase = true
+
+[node name="CurseScreen" parent="." node_paths=PackedStringArray("curse_controller", "world") instance=ExtResource("3_0ite1")]
 visible = false
 curse_controller = NodePath("../CurseController")
+world = NodePath("../World")
