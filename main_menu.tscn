@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsd65tejwowli"]
+
+[ext_resource type="Texture2D" uid="uid://s6makgt5vmrd" path="res://assets/main_menu/menu_screen.png" id="1_1orom"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_dg0is"]
+
+[node name="MainMenu" type="TextureRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_1orom")
+script = ExtResource("2_dg0is")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 324.0
+offset_right = 726.0
+offset_bottom = 424.0
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 335.0
+offset_right = 578.0
+offset_bottom = 372.0
+scale = Vector2(2, 2)
+text = "Start"
+editable = false
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
