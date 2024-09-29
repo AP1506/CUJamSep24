@@ -1,6 +1,6 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
 
-enum PlayerState {MOVABLE, ATTACKED, ATTACKING}
+enum PlayerState {MOVABLE, ATTACKED, ATTACKING, TYPING}
 
 @export var speed = 400
 @export var health = 400
@@ -18,9 +18,16 @@ var state : PlayerState = PlayerState.MOVABLE:
 			PlayerState.ATTACKED:
 				set_physics_process(false)
 				set_process(false)
+				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 			PlayerState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
+				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
+			PlayerState.TYPING:
+				set_physics_process(false)
+				set_process(false)
+				sprite.pause()
+				sprite.frame = 0
 
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer

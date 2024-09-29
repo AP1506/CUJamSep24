@@ -20,10 +20,10 @@ var typing_state: int = CurseState.NON_ACTIVE:
 	set(value):
 		if value == CurseState.ACTIVE:
 			set_process_unhandled_key_input(true)
-			player.process_mode = Node.PROCESS_MODE_DISABLED
+			player.state = Player.PlayerState.TYPING
 		elif value == CurseState.NON_ACTIVE:
 			set_process_unhandled_key_input(false)
-			player.process_mode = Node.PROCESS_MODE_INHERIT
+			player.state = Player.PlayerState.MOVABLE
 		typing_state = value
 
 var text: String = "":

@@ -18,6 +18,10 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 
 GlobalVariables="*res://global_variables.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [input]
 
 start_curse={
