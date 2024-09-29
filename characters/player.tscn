@@ -1,137 +1,21 @@
-[gd_scene load_steps=17 format=3 uid="uid://b4qayqdeo5jbx"]
+[gd_scene load_steps=4 format=3 uid="uid://b4qayqdeo5jbx"]
 
-[ext_resource type="Texture2D" uid="uid://cebnmu4hhxxtg" path="res://assets/characters/tf_template.png" id="1_mmy8o"]
 [ext_resource type="Script" path="res://characters/player.gd" id="1_p5ask"]
+[ext_resource type="SpriteFrames" uid="uid://dffuxom33v30q" path="res://Assets/characters/player.tres" id="2_34iwu"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rvgky"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rxe42"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(26, 0, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_idd1a"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(52, 0, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvxfl"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(0, 0, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwekm"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(26, 36, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6flyu"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(0, 36, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4ses6"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(52, 36, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx3yt"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(26, 72, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_k3v7r"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(0, 72, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kbafl"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(52, 72, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58v3n"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(26, 108, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eoks0"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(52, 108, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vbwj1"]
-atlas = ExtResource("1_mmy8o")
-region = Rect2(0, 108, 26, 36)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_e0ydm"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rxe42")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_idd1a")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_rxe42")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kvxfl")
-}],
-"loop": true,
-"name": &"down",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kwekm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6flyu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kwekm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4ses6")
-}],
-"loop": true,
-"name": &"left",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wx3yt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k3v7r")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wx3yt")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kbafl")
-}],
-"loop": true,
-"name": &"right",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58v3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eoks0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_58v3n")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vbwj1")
-}],
-"loop": true,
-"name": &"up",
-"speed": 5.0
-}]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ahii2"]
+size = Vector2(20, 3.72749)
 
 [node name="Player" type="CharacterBody2D"]
+y_sort_enabled = true
 scale = Vector2(2.055, 2.055)
 script = ExtResource("1_p5ask")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2)
-shape = SubResource("CapsuleShape2D_rvgky")
+shape = SubResource("RectangleShape2D_ahii2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-sprite_frames = SubResource("SpriteFrames_e0ydm")
+position = Vector2(0, 1.94647)
+sprite_frames = ExtResource("2_34iwu")
 animation = &"down"
+offset = Vector2(0, -17)

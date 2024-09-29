@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @export var speed = 400
+@export var health = 400
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -10,7 +11,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide()
+	move_and_collide(velocity*delta)
 
 func _process(delta):
 	if Input.is_anything_pressed():
