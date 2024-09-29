@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsd65tejwowli"]
+[gd_scene load_steps=4 format=3 uid="uid://bsd65tejwowli"]
 
 [ext_resource type="Texture2D" uid="uid://s6makgt5vmrd" path="res://assets/main_menu/menu_screen.png" id="1_1orom"]
 [ext_resource type="Script" path="res://main_menu.gd" id="2_dg0is"]
+[ext_resource type="AudioStream" uid="uid://c3qcorstlmfxa" path="res://assets/main_menu/MainMenuTheme.wav" id="3_33ovx"]
 
 [node name="MainMenu" type="TextureRect"]
 offset_right = 1152.0
@@ -25,5 +26,10 @@ offset_bottom = 372.0
 scale = Vector2(2, 2)
 text = "Start"
 editable = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_33ovx")
+volume_db = -10.306
+autoplay = true
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
