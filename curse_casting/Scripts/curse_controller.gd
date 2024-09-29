@@ -1,5 +1,5 @@
 # File creator: A.P.
-extends Node
+class_name CurseController extends Node
 
 enum CurseState {ACTIVE, NON_ACTIVE}
 
@@ -64,6 +64,7 @@ func _process(delta):
 
 func _unhandled_key_input(event):
 	if event is InputEventKey:
+		# Ideally would only consider alphabet keys
 		if event.pressed and !event.is_action("end_curse"):
 			text += event.as_text_key_label()
 			print(text)

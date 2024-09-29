@@ -10,17 +10,21 @@ var state : EnemyState = EnemyState.MOVABLE:
 	set(value):
 		match value:
 			EnemyState.MOVABLE:
-				process_mode = Node.PROCESS_MODE_INHERIT
+				set_physics_process(true)
+				set_process(true)
 			EnemyState.ATTACKED:
-				process_mode = Node.PROCESS_MODE_DISABLED
+				set_physics_process(false)
+				set_process(false)
 			EnemyState.ATTACKING:
-				process_mode = Node.PROCESS_MODE_DISABLED
+				set_physics_process(false)
+				set_process(false)
 
 @onready var sprite = $AnimatedSprite2D
 @onready var attack_area = $AttackArea
 
 func _ready():
 	y_sort_enabled = true
+	add_to_group("enemies")
 
 # Should return a normalized vector
 func get_direction():

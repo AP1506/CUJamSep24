@@ -37,9 +37,11 @@ scale = Vector2(6.66167, 6.66167)
 [node name="EnemyCryingStudent" parent="World/SubViewport/Level" index="1"]
 scale = Vector2(3.37449, 3.37449)
 
-[node name="Player" parent="World/SubViewport/Level" index="2"]
+[node name="Player" parent="World/SubViewport/Level" index="2" node_paths=PackedStringArray("curse_screen", "curse_controller")]
 position = Vector2(1099, 224)
 scale = Vector2(7.4961, 7.4961)
+curse_screen = NodePath("../../../../MiniGame/CurseScreen")
+curse_controller = NodePath("../../../../CurseController")
 
 [node name="Camera2D" type="Camera2D" parent="World/SubViewport"]
 script = ExtResource("4_woa15")

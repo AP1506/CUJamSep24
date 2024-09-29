@@ -19,7 +19,7 @@ shape = SubResource("RectangleShape2D_4mj1b")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = ExtResource("1_malgy")
-animation = &"down"
+animation = &"up"
 offset = Vector2(0, -15)
 
 [node name="AttackArea" type="Area2D" parent="."]

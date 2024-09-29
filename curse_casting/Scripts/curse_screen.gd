@@ -1,5 +1,7 @@
 # File creator: A.P.
-extends Node2D
+class_name CurseScreen extends Node2D
+
+signal curse_casted(curse_name: String, accuracy: int)
 
 @export var curse_controller : Node
 @export var world : Node
@@ -11,6 +13,9 @@ var currentElement : Node
 
 var slider_started : bool = false
 var slider_length_completed : int = 0
+
+var curse_name : String
+var accuracy : int =  0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -66,7 +71,9 @@ func set_curse(curse: String):
 	if get_child_count() > 0:
 		for i in get_child_count():
 			remove_child(get_child(i - 1))
-	
+
+	curse_name = curse
+
 	match curse:
 		"fear":
 			currentDrawing = preload("res://curse_casting/curse_drawings/drawing_test.tscn").instantiate()
@@ -180,12 +187,7 @@ func set_next_element():
 	
 	# All elements pressed so end the game and return from this function
 	if currentElemIndex >= currentDrawing.elements.size():
-		set_process_unhandled_input(false)
-		make_visible(false)
-		
-		# Turn on other processes
-		curse_controller.curse_state = curse_controller.CurseState.ACTIVE
-		world.process_mode = Node.PROCESS_MODE_INHERIT
+		end_mini_game()
 		return
 	
 	currentElement = currentDrawing.elements[currentElemIndex]
@@ -202,6 +204,17 @@ func set_next_element():
 		
 		if not (currentSlider.end_pressed.is_connected(_slider_end_pressed)):
 			currentSlider.end_pressed.connect(_slider_end_pressed)
+
+func end_mini_game():
+	set_process_unhandled_input(false)
+	make_visible(false)
+
+	# Turn on other processes
+	curse_controller.curse_state = curse_controller.CurseState.ACTIVE
+	world.process_mode = Node.PROCESS_MODE_INHERIT
+
+	assert(curse_name)
+	curse_casted.emit(curse_name, accuracy)
 
 func reset_slider(currentSlider : CurseSlider):
 	slider_length_completed = 0
