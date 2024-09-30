@@ -13,6 +13,9 @@ func _ready():
 	curse_controller.player = player # If we do level loading, we will need to set the player properly
 	player.curse_screen = curse_screen
 
+	for enemy in get_tree().get_nodes_in_group("enemies"):
+		enemy.player = player
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass

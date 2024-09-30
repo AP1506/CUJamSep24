@@ -3,6 +3,8 @@ class_name CurseController extends Node
 
 enum CurseState {ACTIVE, NON_ACTIVE}
 
+# curse_state is for enabling cursing
+
 # ACTIVE is when you can start typing curses
 # NON_ACTIVE is when you can't start type curses
 var curse_state: int = CurseState.ACTIVE:
@@ -14,6 +16,7 @@ var curse_state: int = CurseState.ACTIVE:
 			set_process_unhandled_key_input(false)
 		curse_state = value
 
+# typing_state shows whether the player is typing or not
 # ACTIVE is when you can type curses
 # NON_ACTIVE is when you can't type curses
 var typing_state: int = CurseState.NON_ACTIVE:
@@ -51,7 +54,7 @@ func _process(delta):
 		
 		# Check if text is a correct curse
 		if valid_curse(text.to_lower()):
-			print("Cast " + text)
+			print("Started curse  " + text)
 			
 			# Set up the curse screen
 			curse_screen.set_curse(text.to_lower())

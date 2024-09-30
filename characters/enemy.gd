@@ -5,6 +5,8 @@ enum EnemyState {MOVABLE, ATTACKED, ATTACKING}
 @export var speed = 100
 @export var health : int
 
+var player : Node
+
 var direction : Vector2
 var state : EnemyState = EnemyState.MOVABLE:
 	set(value):

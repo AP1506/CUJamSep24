@@ -70,10 +70,26 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.473976, 0.473976, 0.473976, 1)
 
-[node name="CurseScreen" parent="MiniGame" node_paths=PackedStringArray("curse_controller", "world", "bg") instance=ExtResource("3_0ite1")]
+[node name="CurseScreen" parent="MiniGame" node_paths=PackedStringArray("curse_controller", "world", "bg", "ui", "accuracy_label") instance=ExtResource("3_0ite1")]
 visible = false
 curse_controller = NodePath("../../CurseController")
 world = NodePath("../../World")
 bg = NodePath("../CurseScreenBG")
+ui = NodePath("../UI")
+accuracy_label = NodePath("../UI/AccuracyLabel")
+
+[node name="UI" type="BoxContainer" parent="MiniGame"]
+visible = false
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -1.0
+offset_bottom = 23.0
+grow_horizontal = 0
+size_flags_horizontal = 3
+
+[node name="AccuracyLabel" type="Label" parent="MiniGame/UI"]
+layout_mode = 2
+text = "ACCURACY: 100%"
 
 [editable path="World/SubViewport/Level"]

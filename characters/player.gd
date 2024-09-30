@@ -28,6 +28,7 @@ var state : PlayerState = PlayerState.MOVABLE:
 				set_process(false)
 				sprite.pause()
 				sprite.frame = 0
+		state = value
 
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
@@ -69,11 +70,13 @@ func _process(delta):
 func _on_curse_casted(curse_name: String, accuracy: int):
 	state = PlayerState.ATTACKING
 
-	anim_player.play("magic_" + sprite.animation)
+	print("Cast " + curse_name.to_upper() + " with " + String.num_int64(accuracy) + "% accuracy")
+
+	anim_player.play("magic_" + sprite.animation) # Temp
+	#anim_player.play(curse_name + "_" + sprite.animation)
 
 func _on_animation_finished(anim_name):
-	if "magic" in anim_name:
-		process_mode = Node.PROCESS_MODE_INHERIT
+	if state == PlayerState.ATTACKING:
 		anim_player.play("finished_attack")
 		sprite.play(sprite.animation.trim_prefix("magic_"))
 		sprite.stop()
