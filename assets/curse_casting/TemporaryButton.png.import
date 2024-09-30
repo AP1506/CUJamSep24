@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://8ywx3sas5083"
-path="res://.godot/imported/TemporaryButton.png-b8be10db672fdaca5081f16dc89d97e0.ctex"
+path="res://.godot/imported/TemporaryButton.png-3b33c9f4669fab8f03e68e344952a86e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/curse_casting/TemporaryButton.png"
-dest_files=["res://.godot/imported/TemporaryButton.png-b8be10db672fdaca5081f16dc89d97e0.ctex"]
+source_file="res://Assets/curse_casting/TemporaryButton.png"
+dest_files=["res://.godot/imported/TemporaryButton.png-3b33c9f4669fab8f03e68e344952a86e.ctex"]
 
 [params]
 

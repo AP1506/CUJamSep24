@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b12gm1iu31eqq"
-path="res://.godot/imported/TemporarySliderStartPressed.png-25570c2431ed88e2a5324e46a9a8f725.ctex"
+uid="uid://dfp6gcvmc6py2"
+path="res://.godot/imported/mc_run_R1.png-da469d23a25761522b58b48cf09e2382.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/curse_casting/TemporarySliderStartPressed.png"
-dest_files=["res://.godot/imported/TemporarySliderStartPressed.png-25570c2431ed88e2a5324e46a9a8f725.ctex"]
+source_file="res://Assets/characters/Run/mc_run_R/mc_run_R1.png"
+dest_files=["res://.godot/imported/mc_run_R1.png-da469d23a25761522b58b48cf09e2382.ctex"]
 
 [params]
 
