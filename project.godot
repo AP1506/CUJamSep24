@@ -11,12 +11,16 @@ config_version=5
 [application]
 
 config/name="CUJamSept24"
-run/main_scene="res://main.tscn"
+run/main_scene="res://main_menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
 [autoload]
 
 GlobalVariables="*res://global_variables.gd"
+
+[display]
+
+window/stretch/mode="canvas_items"
 
 [input]
 
@@ -59,5 +63,6 @@ move_down={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
