@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cf8a40fq62fm0"
-path="res://.godot/imported/Sorcerer_cast.png-dbf799e60094dd8e030cf2173964e2f7.ctex"
+path="res://.godot/imported/Sorcerer_cast.png-a58e908f156444ee95b11a5010580808.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Sorcerer_cast.png"
-dest_files=["res://.godot/imported/Sorcerer_cast.png-dbf799e60094dd8e030cf2173964e2f7.ctex"]
+source_file="res://Assets/characters/Sorcerer_cast.png"
+dest_files=["res://.godot/imported/Sorcerer_cast.png-a58e908f156444ee95b11a5010580808.ctex"]
 
 [params]
 
