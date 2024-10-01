@@ -8,3 +8,4 @@ class_name Level extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	y_sort_enabled = true
+	camera.position.x = player_position.position.x

@@ -19,6 +19,7 @@ func _ready():
 	player.died.connect(_on_player_died)
 	
 	camera.target = player
+	set_camera_limits()
 	
 	curse_controller.player = player
 	
@@ -33,9 +34,11 @@ func _ready():
 		player.connect_on_attacked(enemy.attack_area.area_entered, enemy)
 		enemy.tree_exited.connect(_on_enemy_exited_tree)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func set_camera_limits():
+	var map_limits = $World/SubViewport/Level/TileMapLayer.get_used_rect()
+	var map_cellsize = Vector2($World/SubViewport/Level/TileMapLayer.tile_set.tile_size) * $World/SubViewport/Level.scale
+	camera.limit_left = map_limits.position.x * map_cellsize.x
+	camera.limit_right = map_limits.end.x * map_cellsize.x
 
 func _on_player_died():
 	game_over.bind("You died!").call_deferred()
@@ -61,6 +64,8 @@ func reload_level():
 	$World/SubViewport/Level.free()
 	$World/SubViewport.add_child(load($"/root/GlobalVariables".level_information[current_level]["path"]).instantiate(), true)
 	camera = $World/SubViewport/Level/Camera2D
+	
+	set_camera_limits()
 	
 	$World/SubViewport/Level/EscapeZone.area_entered.connect(_on_escaped)
 	
