@@ -6,9 +6,13 @@ extends Node
 @onready var curse_screen = $MiniGame/CurseScreen
 @onready var camera = $World/SubViewport/Level/Camera2D
 @onready var player = $World/SubViewport/Player
+@onready var escaped_label = $UI2/EscapedLabel
 
 var current_level = 1 # The current level, corresponding to the keys in level_information
-var enemies_escaped = 0
+var enemies_escaped = 0:
+	set(value):
+		enemies_escaped = value
+		escaped_label.text = "Escaped " + String.num_int64(value) + "/" + String.num_int64($"/root/GlobalVariables".level_information[current_level]["escapes_allowed"] + 1)
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -26,6 +30,8 @@ func _ready():
 	assert($"/root/GlobalVariables".level_information[current_level]["path"] == $World/SubViewport/Level.scene_file_path)
 	
 	$World/SubViewport/Level/EscapeZone.area_entered.connect(_on_escaped)
+	
+	enemies_escaped = 0
 	
 	# Enemy set up
 	for enemy in get_tree().get_nodes_in_group("enemies"):
@@ -72,9 +78,9 @@ func reload_level():
 	player.reparent($World/SubViewport/Level)
 	player.position = $World/SubViewport/Level/PlayerPosition.position
 	camera.target = player
-	player.state = Player.PlayerState.MOVABLE
-	player.sprite.play("right")
-	player.sprite.stop()
+	player.new_level()
+	
+	enemies_escaped = 0
 	
 	# Enemy set up
 	for enemy in get_tree().get_nodes_in_group("enemies"):

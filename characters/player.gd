@@ -6,10 +6,17 @@ signal cast_curse(curse_name: String, damage: int)
 signal died
 
 @export var speed = 400
-@export var health = 400
+@export var init_health = 400
+var health : int:
+	set(value):
+		if value < 0:
+			value = 0
+		health = value
+		health_label.text = "Health: " + String.num_int64(health)
 
 @export var curse_screen : CurseScreen
 @export var curse_controller : CurseController
+@export var health_label : Label
 
 var state : PlayerState = PlayerState.MOVABLE:
 	set(value):
@@ -56,6 +63,17 @@ var attack_damage : int
 func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
 	anim_player.animation_finished.connect(_on_animation_finished)
+	health = init_health
+
+func new_level():
+	health = init_health
+	state = Player.PlayerState.MOVABLE
+	sprite.play("right")
+	sprite.stop()
+	
+	curse_controller.curse_state = CurseController.CurseState.ACTIVE
+	curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
+	curse_controller.text = ""
 
 func die():
 	state = PlayerState.DEAD

@@ -30,9 +30,10 @@ render_target_update_mode = 4
 
 [node name="Level" parent="World/SubViewport" instance=ExtResource("3_f7sl7")]
 
-[node name="Player" parent="World/SubViewport" node_paths=PackedStringArray("curse_screen", "curse_controller") instance=ExtResource("4_65u8e")]
+[node name="Player" parent="World/SubViewport" node_paths=PackedStringArray("curse_screen", "curse_controller", "health_label") instance=ExtResource("4_65u8e")]
 curse_screen = NodePath("../../../MiniGame/CurseScreen")
 curse_controller = NodePath("../../../CurseController")
+health_label = NodePath("../../../UI2/PlayerHealthLabel")
 
 [node name="UI" type="BoxContainer" parent="."]
 anchors_preset = 10
@@ -46,6 +47,21 @@ layout_mode = 2
 size_flags_horizontal = 6
 text = "test text"
 uppercase = true
+
+[node name="UI2" type="BoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+
+[node name="PlayerHealthLabel" type="Label" parent="UI2"]
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Health: "
+
+[node name="EscapedLabel" type="Label" parent="UI2"]
+layout_mode = 2
+text = "Escaped:"
 
 [node name="MiniGame" type="Node" parent="."]
 
