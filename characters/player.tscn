@@ -54,5 +54,4 @@ text = "Text"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackableArea"]
 position = Vector2(4.47035e-08, -0.7)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_l50oq")
