@@ -15,6 +15,7 @@ var curse_state: int = CurseState.ACTIVE:
 			set_process(false)
 			set_process_unhandled_key_input(false)
 		curse_state = value
+		print("curse_state is now " + CurseState.keys()[value])
 
 # typing_state shows whether the player is typing or not
 # ACTIVE is when you can type curses
@@ -26,8 +27,8 @@ var typing_state: int = CurseState.NON_ACTIVE:
 			player.state = Player.PlayerState.TYPING
 		elif value == CurseState.NON_ACTIVE:
 			set_process_unhandled_key_input(false)
-			player.state = Player.PlayerState.MOVABLE
 		typing_state = value
+		print("typing_state is now " + CurseState.keys()[value])
 
 var text: String = "":
 	set(value):
@@ -51,6 +52,7 @@ func _process(delta):
 	# End a curse
 	elif Input.is_action_just_pressed("end_curse") && typing_state == CurseState.ACTIVE:
 		typing_state = CurseState.NON_ACTIVE
+		player.state = Player.PlayerState.MOVABLE
 		
 		# Check if text is a correct curse
 		if valid_curse(text.to_lower()):

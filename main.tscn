@@ -41,6 +41,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="UI"]
+editor_description = "Label for cursed typing"
 layout_mode = 2
 size_flags_horizontal = 6
 text = "test text"
@@ -79,3 +80,40 @@ size_flags_horizontal = 3
 [node name="AccuracyLabel" type="Label" parent="MiniGame/UI"]
 layout_mode = 2
 text = "ACCURACY: 100%"
+
+[node name="Popups" type="BoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOver" type="PopupPanel" parent="Popups"]
+initial_position = 2
+size = Vector2i(200, 100)
+
+[node name="BoxContainer" type="VBoxContainer" parent="Popups/GameOver"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = -4.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GameOverLabel" type="Label" parent="Popups/GameOver/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+text = "Game Over!"
+
+[node name="RetryButton" type="Button" parent="Popups/GameOver/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Retry?"
+
+[connection signal="pressed" from="Popups/GameOver/BoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
