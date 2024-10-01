@@ -18,6 +18,7 @@ func _ready():
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy.player = player
 		enemy.connect_on_attacked(player.spell_area.area_entered, player)
+		player.connect_on_attacked(enemy.attack_area.area_entered, enemy)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

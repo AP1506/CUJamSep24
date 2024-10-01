@@ -120,6 +120,38 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rxe42")
+}],
+"loop": true,
+"name": &"magic_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwekm")
+}],
+"loop": true,
+"name": &"magic_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx3yt")
+}],
+"loop": true,
+"name": &"magic_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_58v3n")
+}],
+"loop": true,
+"name": &"magic_up",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wx3yt")
 }, {
 "duration": 1.0,

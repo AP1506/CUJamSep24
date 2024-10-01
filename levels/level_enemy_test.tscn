@@ -26,6 +26,15 @@ shape = SubResource("RectangleShape2D_i8clr")
 [node name="EnemyCryingStudent" parent="." instance=ExtResource("4_l1bnw")]
 position = Vector2(95.2317, 36.5465)
 
+[node name="EnemyCryingStudent2" parent="." instance=ExtResource("4_l1bnw")]
+position = Vector2(413, 39.2)
+
+[node name="EnemyCryingStudent3" parent="." instance=ExtResource("4_l1bnw")]
+position = Vector2(241.6, 57)
+
+[node name="EnemyCryingStudent4" parent="." instance=ExtResource("4_l1bnw")]
+position = Vector2(296, 27.4)
+
 [node name="PlayerPosition" type="Node2D" parent="."]
 position = Vector2(42.5204, 32.681)
 

@@ -38,6 +38,7 @@ var attack_damage : int
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
 @onready var spell_area = $SpellArea
+@onready var dmg_label = $DmgLabel
 
 func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
@@ -88,10 +89,35 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 	anim_player.play("player_curse_anims/magic_" + sprite.animation) # Temp
 	#anim_player.play("player_curse_anims/" + curse_name + "_" + sprite.animation)
 
+func connect_on_attacked(sig: Signal, attacker : Node):
+	sig.connect(_on_attacked.bind(attacker))
+
+func _on_attacked(playerArea : Area2D, attacker):
+	if playerArea.get_parent() != self:
+		return
+	
+	assert(attacker is Enemy)
+	attacker.on_attacking()
+	
+	print("Player attacked with " + String.num_int64(attacker.attack_damage))
+	state = PlayerState.ATTACKED
+	
+	dmg_label.text = "-" + String.num_int64(attacker.attack_damage)
+	
+	health -= attacker.attack_damage
+	
+	anim_player.play("player_curse_anims/attacked_" + sprite.animation)
+
 func _on_animation_finished(anim_name):
 	if state == PlayerState.ATTACKING:
 		anim_player.play("player_curse_anims/finished_attack")
 		sprite.play(sprite.animation.trim_prefix("magic_"))
+		sprite.stop()
+		sprite.frame = 0
+
+		state = PlayerState.MOVABLE
+	elif state == PlayerState.ATTACKED:
+		sprite.play(sprite.animation.trim_prefix("attacked_"))
 		sprite.stop()
 		sprite.frame = 0
 

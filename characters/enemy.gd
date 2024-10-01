@@ -8,6 +8,7 @@ enum EnemyState {MOVABLE, ATTACKED, ATTACKING}
 var player : Node
 
 var direction : Vector2
+var attack_damage : int = 50
 var state : EnemyState = EnemyState.MOVABLE:
 	set(value):
 		match value:
@@ -48,13 +49,13 @@ func _process(delta):
 	
 	if direction.length() > 0:
 		if direction.x < 0:
-			sprite.play("left")
+			anim_player.play("enemy_anims/left")
 		elif direction.x > 0:
-			sprite.play("right")
+			anim_player.play("enemy_anims/right")
 		elif direction.y > 0:
-			sprite.play("down")
+			anim_player.play("enemy_anims/down")
 		elif direction.y < 0:
-			sprite.play("up")
+			anim_player.play("enemy_anims/up")
 	else:
 		sprite.stop();
 
@@ -73,11 +74,21 @@ func _on_attacked(enemy_area : Area2D, attacker):
 	
 	health -= attacker.attack_damage
 	
-	anim_player.play("attacked_" + sprite.animation)
+	anim_player.play("enemy_anims/attacked_" + sprite.animation)
+
+func on_attacking():
+	state = EnemyState.ATTACKING
+	anim_player.play("enemy_anims/magic_" + sprite.animation)
 
 func _on_animation_finished(anim_name):
 	if state == EnemyState.ATTACKED:
 		sprite.play(sprite.animation.trim_prefix("attacked_"))
+		sprite.stop()
+		sprite.frame = 0
+
+		state = EnemyState.MOVABLE
+	elif state == EnemyState.ATTACKING:
+		sprite.play(sprite.animation.trim_prefix("magic_"))
 		sprite.stop()
 		sprite.frame = 0
 

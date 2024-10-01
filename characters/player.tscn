@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://b4qayqdeo5jbx"]
+[gd_scene load_steps=7 format=3 uid="uid://b4qayqdeo5jbx"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_p5ask"]
 [ext_resource type="SpriteFrames" uid="uid://cua6ykgqqug2o" path="res://assets/characters/main_chara.tres" id="2_xyj4k"]
@@ -9,6 +9,9 @@ size = Vector2(10.4, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yev7a"]
 size = Vector2(5, 5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l50oq"]
+size = Vector2(20, 29.6)
 
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(5, 5)
@@ -36,3 +39,20 @@ shape = SubResource("RectangleShape2D_yev7a")
 libraries = {
 "player_curse_anims": ExtResource("3_jqbnj")
 }
+
+[node name="DmgLabel" type="Label" parent="."]
+visible = false
+offset_left = -9.0
+offset_top = -38.0
+offset_right = 31.0
+offset_bottom = -15.0
+scale = Vector2(0.479479, 0.479479)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Text"
+
+[node name="AttackableArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackableArea"]
+position = Vector2(4.47035e-08, -13.6)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_l50oq")
