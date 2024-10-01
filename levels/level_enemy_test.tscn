@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://camera_2d.gd" id="5_88mor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8clr"]
-size = Vector2(23, 73)
+size = Vector2(2.8, 73)
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -20,7 +20,8 @@ tile_set = ExtResource("2_40tcw")
 [node name="EscapeZone" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EscapeZone"]
-position = Vector2(10.5, 26.5)
+position = Vector2(0.400001, 26.5)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i8clr")
 
 [node name="EnemyCryingStudent" parent="." instance=ExtResource("4_l1bnw")]
