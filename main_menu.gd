@@ -12,6 +12,8 @@ func _process(delta: float) -> void:
 
 
 func _on_button_pressed() -> void:
+	$Button.disabled = true
+	$AnimationPlayer.play("loading")
 	var audioLevel = $AudioStreamPlayer.get_volume_db()
 	while true:
 		$AudioStreamPlayer.set_volume_db(audioLevel)
