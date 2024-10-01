@@ -1,8 +1,9 @@
 class_name Player extends CharacterBody2D
 
-enum PlayerState {MOVABLE, ATTACKED, ATTACKING, TYPING}
+enum PlayerState {MOVABLE, ATTACKED, ATTACKING, TYPING, DEAD}
 
 signal cast_curse(curse_name: String, damage: int)
+signal died
 
 @export var speed = 400
 @export var health = 400
@@ -34,6 +35,13 @@ var state : PlayerState = PlayerState.MOVABLE:
 				set_process(false)
 				sprite.pause()
 				sprite.frame = 0
+			PlayerState.DEAD:
+				set_physics_process(false)
+				set_process(false)
+				$AttackableArea.set_deferred("monitorable", false)
+				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
+				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
+				curse_controller.text = ""
 		state = value
 		print("player state is now " + PlayerState.keys()[value])
 
@@ -48,6 +56,11 @@ var attack_damage : int
 func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
 	anim_player.animation_finished.connect(_on_animation_finished)
+
+func die():
+	state = PlayerState.DEAD
+	
+	anim_player.play("player_curse_anims/attacked_" + sprite.animation)
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -110,20 +123,25 @@ func _on_attacked(playerArea : Area2D, attacker):
 	dmg_label.text = "-" + String.num_int64(attacker.attack_damage)
 	
 	health -= attacker.attack_damage
-	
-	anim_player.play("player_curse_anims/attacked_" + sprite.animation)
+	if (health > 0):
+		anim_player.play("player_curse_anims/attacked_" + sprite.animation)
+	else:
+		die()
 
 func _on_animation_finished(anim_name):
-	if state == PlayerState.ATTACKING:
+	print(anim_name)
+	if state == PlayerState.ATTACKING and ("magic_" in anim_name):
 		anim_player.play("player_curse_anims/finished_attack")
 		sprite.play(sprite.animation.trim_prefix("magic_"))
 		sprite.stop()
 		sprite.frame = 0
 
 		state = PlayerState.MOVABLE
-	elif state == PlayerState.ATTACKED:
+	elif state == PlayerState.ATTACKED and ("attacked" in anim_name):
 		sprite.play(sprite.animation.trim_prefix("attacked_"))
 		sprite.stop()
 		sprite.frame = 0
 
 		state = PlayerState.MOVABLE
+	elif state == PlayerState.DEAD and ("attacked" in anim_name):
+		died.emit()
