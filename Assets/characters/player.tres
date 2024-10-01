@@ -6,6 +6,18 @@
 atlas = ExtResource("1_kkguf")
 region = Rect2(26, 0, 26, 36)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwekm"]
+atlas = ExtResource("1_kkguf")
+region = Rect2(26, 36, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx3yt"]
+atlas = ExtResource("1_kkguf")
+region = Rect2(26, 72, 26, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58v3n"]
+atlas = ExtResource("1_kkguf")
+region = Rect2(26, 108, 26, 36)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_idd1a"]
 atlas = ExtResource("1_kkguf")
 region = Rect2(52, 0, 26, 36)
@@ -13,10 +25,6 @@ region = Rect2(52, 0, 26, 36)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kvxfl"]
 atlas = ExtResource("1_kkguf")
 region = Rect2(0, 0, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kwekm"]
-atlas = ExtResource("1_kkguf")
-region = Rect2(26, 36, 26, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6flyu"]
 atlas = ExtResource("1_kkguf")
@@ -26,10 +34,6 @@ region = Rect2(0, 36, 26, 36)
 atlas = ExtResource("1_kkguf")
 region = Rect2(52, 36, 26, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_wx3yt"]
-atlas = ExtResource("1_kkguf")
-region = Rect2(26, 72, 26, 36)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_k3v7r"]
 atlas = ExtResource("1_kkguf")
 region = Rect2(0, 72, 26, 36)
@@ -37,10 +41,6 @@ region = Rect2(0, 72, 26, 36)
 [sub_resource type="AtlasTexture" id="AtlasTexture_kbafl"]
 atlas = ExtResource("1_kkguf")
 region = Rect2(52, 72, 26, 36)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_58v3n"]
-atlas = ExtResource("1_kkguf")
-region = Rect2(26, 108, 26, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eoks0"]
 atlas = ExtResource("1_kkguf")
@@ -52,6 +52,38 @@ region = Rect2(0, 108, 26, 36)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_rxe42")
+}],
+"loop": true,
+"name": &"attacked_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_kwekm")
+}],
+"loop": true,
+"name": &"attacked_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_wx3yt")
+}],
+"loop": true,
+"name": &"attacked_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 5.0,
+"texture": SubResource("AtlasTexture_58v3n")
+}],
+"loop": true,
+"name": &"attacked_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_rxe42")

@@ -2,6 +2,8 @@ class_name Player extends CharacterBody2D
 
 enum PlayerState {MOVABLE, ATTACKED, ATTACKING, TYPING}
 
+signal cast_curse(curse_name: String, damage: int)
+
 @export var speed = 400
 @export var health = 400
 
@@ -30,8 +32,12 @@ var state : PlayerState = PlayerState.MOVABLE:
 				sprite.frame = 0
 		state = value
 
+var curse_being_cast : String
+var attack_damage : int
+
 @onready var sprite = $AnimatedSprite2D
 @onready var anim_player = $AnimationPlayer
+@onready var spell_area = $SpellArea
 
 func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
@@ -69,15 +75,22 @@ func _process(delta):
 
 func _on_curse_casted(curse_name: String, accuracy: int):
 	state = PlayerState.ATTACKING
+	curse_being_cast = curse_name
 
 	print("Cast " + curse_name.to_upper() + " with " + String.num_int64(accuracy) + "% accuracy")
+	
+	match curse_name:
+		"fear":
+			attack_damage = 10
+		_:
+			push_error("Cast unknown curse, " + curse_name)
 
-	anim_player.play("magic_" + sprite.animation) # Temp
-	#anim_player.play(curse_name + "_" + sprite.animation)
+	anim_player.play("player_curse_anims/magic_" + sprite.animation) # Temp
+	#anim_player.play("player_curse_anims/" + curse_name + "_" + sprite.animation)
 
 func _on_animation_finished(anim_name):
 	if state == PlayerState.ATTACKING:
-		anim_player.play("finished_attack")
+		anim_player.play("player_curse_anims/finished_attack")
 		sprite.play(sprite.animation.trim_prefix("magic_"))
 		sprite.stop()
 		sprite.frame = 0

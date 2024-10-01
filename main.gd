@@ -4,17 +4,20 @@ extends Node
 
 @onready var curse_controller = $CurseController
 @onready var curse_screen = $MiniGame/CurseScreen
-@onready var camera = $World/SubViewport/Camera2D
-@onready var player = $World/SubViewport/Level/Player
+@onready var camera = $World/SubViewport/Level/Camera2D
+@onready var player = $World/SubViewport/Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	player.reparent($World/SubViewport/Level)
 	camera.target = player
-	curse_controller.player = player # If we do level loading, we will need to set the player properly
+	curse_controller.player = player
 	player.curse_screen = curse_screen
+	player.position = $World/SubViewport/Level/PlayerPosition.position
 
 	for enemy in get_tree().get_nodes_in_group("enemies"):
 		enemy.player = player
+		enemy.connect_on_attacked(player.spell_area.area_entered, player)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

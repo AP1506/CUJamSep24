@@ -4,15 +4,14 @@
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
 [ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
 [ext_resource type="PackedScene" uid="uid://caxyocq7s6q05" path="res://levels/level_enemy_test.tscn" id="3_f7sl7"]
-[ext_resource type="Script" path="res://camera_2d.gd" id="4_woa15"]
+[ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
 
-[node name="CurseController" parent="." node_paths=PackedStringArray("curse_screen", "display", "player", "world") instance=ExtResource("2_f20hy")]
+[node name="CurseController" parent="." node_paths=PackedStringArray("curse_screen", "display", "world") instance=ExtResource("2_f20hy")]
 curse_screen = NodePath("../MiniGame/CurseScreen")
 display = NodePath("../UI/Label")
-player = NodePath("../World/SubViewport/Level/Player")
 world = NodePath("../World")
 
 [node name="World" type="SubViewportContainer" parent="."]
@@ -31,20 +30,9 @@ render_target_update_mode = 4
 
 [node name="Level" parent="World/SubViewport" instance=ExtResource("3_f7sl7")]
 
-[node name="TileMapLayer" parent="World/SubViewport/Level" index="0"]
-scale = Vector2(6.66167, 6.66167)
-
-[node name="EnemyCryingStudent" parent="World/SubViewport/Level" index="1"]
-scale = Vector2(3.37449, 3.37449)
-
-[node name="Player" parent="World/SubViewport/Level" index="2" node_paths=PackedStringArray("curse_screen", "curse_controller")]
-position = Vector2(1099, 224)
-scale = Vector2(7.4961, 7.4961)
-curse_screen = NodePath("../../../../MiniGame/CurseScreen")
-curse_controller = NodePath("../../../../CurseController")
-
-[node name="Camera2D" type="Camera2D" parent="World/SubViewport"]
-script = ExtResource("4_woa15")
+[node name="Player" parent="World/SubViewport" node_paths=PackedStringArray("curse_screen", "curse_controller") instance=ExtResource("4_65u8e")]
+curse_screen = NodePath("../../../MiniGame/CurseScreen")
+curse_controller = NodePath("../../../CurseController")
 
 [node name="UI" type="BoxContainer" parent="."]
 anchors_preset = 10
@@ -91,5 +79,3 @@ size_flags_horizontal = 3
 [node name="AccuracyLabel" type="Label" parent="MiniGame/UI"]
 layout_mode = 2
 text = "ACCURACY: 100%"
-
-[editable path="World/SubViewport/Level"]
