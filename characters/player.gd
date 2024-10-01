@@ -16,11 +16,15 @@ var state : PlayerState = PlayerState.MOVABLE:
 			PlayerState.MOVABLE:
 				set_physics_process(true)
 				set_process(true)
+				$AttackableArea.set_deferred("monitorable", true)
 				curse_controller.curse_state = CurseController.CurseState.ACTIVE
 			PlayerState.ATTACKED:
 				set_physics_process(false)
 				set_process(false)
+				$AttackableArea.set_deferred("monitorable", false)
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
+				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
+				curse_controller.text = ""
 			PlayerState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
@@ -31,6 +35,7 @@ var state : PlayerState = PlayerState.MOVABLE:
 				sprite.pause()
 				sprite.frame = 0
 		state = value
+		print("player state is now " + PlayerState.keys()[value])
 
 var curse_being_cast : String
 var attack_damage : int

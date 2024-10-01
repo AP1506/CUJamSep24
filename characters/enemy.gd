@@ -15,12 +15,14 @@ var state : EnemyState = EnemyState.MOVABLE:
 			EnemyState.MOVABLE:
 				set_physics_process(true)
 				set_process(true)
+				$AttackArea.set_deferred("monitoring", true)
 			EnemyState.ATTACKED:
 				set_physics_process(false)
 				set_process(false)
 			EnemyState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
+				$AttackArea.set_deferred("monitoring", false)
 			EnemyState.DEAD:
 				set_physics_process(false)
 				set_process(false)

@@ -41,6 +41,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 
 [node name="Label" type="Label" parent="UI"]
+editor_description = "Label for cursed typing"
 layout_mode = 2
 size_flags_horizontal = 6
 text = "test text"

@@ -19,7 +19,15 @@ func _ready():
 		enemy.player = player
 		enemy.connect_on_attacked(player.spell_area.area_entered, player)
 		player.connect_on_attacked(enemy.attack_area.area_entered, enemy)
+		enemy.tree_exited.connect(_on_enemy_exited_tree)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
+
+
+func _on_enemy_exited_tree():
+	if get_tree().get_node_count_in_group("enemies") > 0:
+			print("Enemies still exist on map")
+	else:
+			print("Cleared all enemies on the map")
