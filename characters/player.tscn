@@ -1,27 +1,29 @@
 [gd_scene load_steps=6 format=3 uid="uid://b4qayqdeo5jbx"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_p5ask"]
-[ext_resource type="SpriteFrames" uid="uid://v0e4fqptc4g8" path="res://assets/characters/sorcerer.tres" id="2_auami"]
+[ext_resource type="SpriteFrames" uid="uid://cua6ykgqqug2o" path="res://assets/characters/main_chara.tres" id="2_xyj4k"]
 [ext_resource type="AnimationLibrary" uid="uid://irqfihdn0bqm" path="res://assets/characters/player_curse_anims.res" id="3_jqbnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahii2"]
-size = Vector2(20, 3.72749)
+size = Vector2(10.4, 2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yev7a"]
 size = Vector2(5, 5)
 
 [node name="Player" type="CharacterBody2D"]
-scale = Vector2(7, 7)
+scale = Vector2(5, 5)
 script = ExtResource("1_p5ask")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.2)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ahii2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 1.94647)
-sprite_frames = ExtResource("2_auami")
+sprite_frames = ExtResource("2_xyj4k")
 animation = &"down"
-offset = Vector2(0, -8)
+offset = Vector2(0, -17)
 
 [node name="SpellArea" type="Area2D" parent="."]
 monitoring = false
