@@ -1,0 +1,47 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsd65tejwowli"]
+
+[ext_resource type="Texture2D" uid="uid://s6makgt5vmrd" path="res://assets/main_menu/menu_screen.png" id="1_1orom"]
+[ext_resource type="Script" path="res://main_menu.gd" id="2_dg0is"]
+[ext_resource type="AudioStream" uid="uid://c3qcorstlmfxa" path="res://assets/main_menu/MainMenuTheme.wav" id="3_33ovx"]
+[ext_resource type="Texture2D" uid="uid://d0iwbavtvc1sw" path="res://assets/main_menu/HexedHallwaysLogo.png" id="4_n60ir"]
+
+[node name="MainMenu" type="TextureRect"]
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("1_1orom")
+script = ExtResource("2_dg0is")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 530.0
+offset_top = 335.0
+offset_right = 578.0
+offset_bottom = 372.0
+scale = Vector2(2, 2)
+text = "Start"
+editable = false
+selecting_enabled = false
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 426.0
+offset_top = 324.0
+offset_right = 726.0
+offset_bottom = 424.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_33ovx")
+volume_db = -10.306
+autoplay = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 186.0
+offset_top = 100.0
+offset_right = 966.0
+offset_bottom = 280.0
+texture = ExtResource("4_n60ir")
+expand_mode = 1
+stretch_mode = 4
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
