@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://kii5snlt0uel"
-path="res://.godot/imported/Sorcerer_walk.png-faabbf4856d40872bbd2b274c5006f34.ctex"
+path="res://.godot/imported/Sorcerer_walk.png-7b0b611f843456d93a8f68d2f8da1c3b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/characters/Sorcerer_walk.png"
-dest_files=["res://.godot/imported/Sorcerer_walk.png-faabbf4856d40872bbd2b274c5006f34.ctex"]
+source_file="res://assets/characters/Sorcerer_walk.png"
+dest_files=["res://.godot/imported/Sorcerer_walk.png-7b0b611f843456d93a8f68d2f8da1c3b.ctex"]
 
 [params]
 
