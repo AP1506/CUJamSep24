@@ -82,7 +82,7 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 	
 	match curse_name:
 		"fear":
-			attack_damage = 10
+			attack_damage = 50
 		_:
 			push_error("Cast unknown curse, " + curse_name)
 

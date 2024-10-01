@@ -1,6 +1,6 @@
 class_name Enemy extends CharacterBody2D
 
-enum EnemyState {MOVABLE, ATTACKED, ATTACKING}
+enum EnemyState {MOVABLE, ATTACKED, ATTACKING, DEAD}
 
 @export var speed = 100
 @export var health : int = 100
@@ -21,6 +21,9 @@ var state : EnemyState = EnemyState.MOVABLE:
 			EnemyState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
+			EnemyState.DEAD:
+				set_physics_process(false)
+				set_process(false)
 		
 		state = value
 
@@ -37,6 +40,12 @@ func _ready():
 # Should return a normalized vector
 func get_direction():
 	return Vector2(-1, 0)
+
+func die():
+	state = EnemyState.DEAD
+	
+	anim_player.play("enemy_anims/dead_" + sprite.animation)
+	
 
 func _physics_process(delta):
 	direction = get_direction()
@@ -74,7 +83,10 @@ func _on_attacked(enemy_area : Area2D, attacker):
 	
 	health -= attacker.attack_damage
 	
-	anim_player.play("enemy_anims/attacked_" + sprite.animation)
+	if (health > 0):
+		anim_player.play("enemy_anims/attacked_" + sprite.animation)
+	else:
+		die()
 
 func on_attacking():
 	state = EnemyState.ATTACKING
@@ -93,3 +105,5 @@ func _on_animation_finished(anim_name):
 		sprite.frame = 0
 
 		state = EnemyState.MOVABLE
+	elif state == EnemyState.DEAD:
+		queue_free()
