@@ -1,8 +1,24 @@
-[gd_resource type="SpriteFrames" load_steps=40 format=3 uid="uid://cua6ykgqqug2o"]
+[gd_resource type="SpriteFrames" load_steps=41 format=3 uid="uid://cua6ykgqqug2o"]
 
 [ext_resource type="Texture2D" uid="uid://6t5bkdqg050y" path="res://assets/characters/mc_run.png" id="1_kmovm"]
 [ext_resource type="Texture2D" uid="uid://cf8a40fq62fm0" path="res://assets/characters/Sorcerer_cast.png" id="2_ssoqc"]
 [ext_resource type="Texture2D" uid="uid://btjyy22832prv" path="res://assets/characters/Sorcerer_melee.png" id="3_xegmr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrp2a"]
+atlas = ExtResource("1_kmovm")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8nexh"]
+atlas = ExtResource("1_kmovm")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5i04a"]
+atlas = ExtResource("1_kmovm")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57nqe"]
+atlas = ExtResource("1_kmovm")
+region = Rect2(64, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ikyav"]
 atlas = ExtResource("1_kmovm")
@@ -19,10 +35,6 @@ region = Rect2(32, 32, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_y72sx"]
 atlas = ExtResource("1_kmovm")
 region = Rect2(48, 32, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8nexh"]
-atlas = ExtResource("1_kmovm")
-region = Rect2(64, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xrdb5"]
 atlas = ExtResource("1_kmovm")
@@ -116,10 +128,6 @@ region = Rect2(96, 144, 48, 48)
 atlas = ExtResource("3_xegmr")
 region = Rect2(144, 144, 48, 48)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5i04a"]
-atlas = ExtResource("1_kmovm")
-region = Rect2(0, 0, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m0sh5"]
 atlas = ExtResource("1_kmovm")
 region = Rect2(16, 0, 16, 32)
@@ -131,10 +139,6 @@ region = Rect2(32, 0, 16, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_hu845"]
 atlas = ExtResource("1_kmovm")
 region = Rect2(48, 0, 16, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_57nqe"]
-atlas = ExtResource("1_kmovm")
-region = Rect2(64, 32, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nunf7"]
 atlas = ExtResource("1_kmovm")
@@ -150,6 +154,38 @@ region = Rect2(112, 32, 16, 32)
 
 [resource]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrp2a")
+}],
+"loop": true,
+"name": &"attacked_down",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8nexh")
+}],
+"loop": true,
+"name": &"attacked_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5i04a")
+}],
+"loop": true,
+"name": &"attacked_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57nqe")
+}],
+"loop": true,
+"name": &"attacked_up",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_ikyav")
