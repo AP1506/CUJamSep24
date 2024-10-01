@@ -1,8 +1,47 @@
-extends CharacterBody2D
+class_name Player extends CharacterBody2D
+
+enum PlayerState {MOVABLE, ATTACKED, ATTACKING, TYPING}
+
+signal cast_curse(curse_name: String, damage: int)
 
 @export var speed = 400
+@export var health = 400
+
+@export var curse_screen : CurseScreen
+@export var curse_controller : CurseController
+
+var state : PlayerState = PlayerState.MOVABLE:
+	set(value):
+		match value:
+			PlayerState.MOVABLE:
+				set_physics_process(true)
+				set_process(true)
+				curse_controller.curse_state = CurseController.CurseState.ACTIVE
+			PlayerState.ATTACKED:
+				set_physics_process(false)
+				set_process(false)
+				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
+			PlayerState.ATTACKING:
+				set_physics_process(false)
+				set_process(false)
+				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
+			PlayerState.TYPING:
+				set_physics_process(false)
+				set_process(false)
+				sprite.pause()
+				sprite.frame = 0
+		state = value
+
+var curse_being_cast : String
+var attack_damage : int
 
 @onready var sprite = $AnimatedSprite2D
+@onready var anim_player = $AnimationPlayer
+@onready var spell_area = $SpellArea
+
+func _ready():
+	curse_screen.curse_casted.connect(_on_curse_casted)
+	anim_player.animation_finished.connect(_on_animation_finished)
 
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -10,7 +49,7 @@ func get_input():
 
 func _physics_process(delta):
 	get_input()
-	move_and_slide()
+	move_and_collide(velocity*delta)
 
 func _process(delta):
 	if Input.is_anything_pressed():
@@ -33,3 +72,27 @@ func _process(delta):
 			sprite.play("up")
 		
 		sprite.stop()
+
+func _on_curse_casted(curse_name: String, accuracy: int):
+	state = PlayerState.ATTACKING
+	curse_being_cast = curse_name
+
+	print("Cast " + curse_name.to_upper() + " with " + String.num_int64(accuracy) + "% accuracy")
+	
+	match curse_name:
+		"fear":
+			attack_damage = 10
+		_:
+			push_error("Cast unknown curse, " + curse_name)
+
+	anim_player.play("player_curse_anims/magic_" + sprite.animation) # Temp
+	#anim_player.play("player_curse_anims/" + curse_name + "_" + sprite.animation)
+
+func _on_animation_finished(anim_name):
+	if state == PlayerState.ATTACKING:
+		anim_player.play("player_curse_anims/finished_attack")
+		sprite.play(sprite.animation.trim_prefix("magic_"))
+		sprite.stop()
+		sprite.frame = 0
+
+		state = PlayerState.MOVABLE

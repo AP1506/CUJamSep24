@@ -1,10 +1,10 @@
-[gd_scene load_steps=6 format=4 uid="uid://miii2gxtru8h"]
+[gd_scene load_steps=6 format=4 uid="uid://dxio5n2u75u12"]
 
-[ext_resource type="Texture2D" uid="uid://b5p6rwflhmdu" path="res://Assets/tile_sets/Floor Tiles.png" id="1_8dqcn"]
-[ext_resource type="Texture2D" uid="uid://bj55scuwu735a" path="res://Assets/tile_sets/Wall TIles.png" id="2_th4pj"]
+[ext_resource type="Texture2D" uid="uid://b5p6rwflhmdu" path="res://assets/tile_sets/Floor Tiles.png" id="1_bxgas"]
+[ext_resource type="Texture2D" uid="uid://bj55scuwu735a" path="res://assets/tile_sets/Wall TIles.png" id="2_kah5l"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bvtex"]
-texture = ExtResource("1_8dqcn")
+texture = ExtResource("1_bxgas")
 0:0/0 = 0
 2:0/0 = 0
 4:0/0 = 0
@@ -22,7 +22,7 @@ texture = ExtResource("1_8dqcn")
 1:6/0/texture_origin = Vector2i(-8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7wjmx"]
-texture = ExtResource("2_th4pj")
+texture = ExtResource("2_kah5l")
 7:2/0 = 0
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:2/0 = 0
