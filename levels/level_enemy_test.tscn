@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://caxyocq7s6q05"]
+[gd_scene load_steps=7 format=4 uid="uid://caxyocq7s6q05"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cuc7m"]
 [ext_resource type="TileSet" uid="uid://b5ur4cqn85i6h" path="res://assets/tile_sets/tunnels.tres" id="2_40tcw"]
 [ext_resource type="PackedScene" uid="uid://b4oagoyytxykj" path="res://characters/enemy_crying_student.tscn" id="4_l1bnw"]
+[ext_resource type="PackedScene" uid="uid://cl2a8ppnd6r3s" path="res://characters/enemy_heater_fire.tscn" id="4_thunk"]
 [ext_resource type="Script" path="res://camera_2d.gd" id="5_88mor"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8clr"]
@@ -41,3 +42,9 @@ position = Vector2(42.5204, 32.681)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42.52, 0)
 script = ExtResource("5_88mor")
+
+[node name="EnemyHeaterFire" parent="." instance=ExtResource("4_thunk")]
+position = Vector2(447.4, 1)
+
+[node name="EnemyHeaterFire2" parent="." instance=ExtResource("4_thunk")]
+position = Vector2(228.8, 0)
