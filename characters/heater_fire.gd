@@ -11,13 +11,13 @@ func get_direction():
 
 func die():
 	state = EnemyState.DEAD
-	anim_player.play("enemy_anims/dead")
+	$AnimationPlayer.play("fire_enemy_anims/dead")
 
 func _physics_process(delta):
 	pass
 
 func _process(delta):
-	pass
+	$AnimationPlayer.play("fire_enemy_anims/idle")
 
 func connect_on_attacked(sig: Signal, attacker : Node):
 	sig.connect(_on_attacked.bind(attacker))
@@ -35,7 +35,6 @@ func _on_attacked(enemy_area : Area2D, attacker):
 	health -= attacker.attack_damage
 	
 	if (health > 0):
-		anim_player.play("enemy_anims/attacked")
 		print("Heater Fire alive with "+str(health)+" HP")
 	else:
 		die()
@@ -44,14 +43,20 @@ func on_attacking():
 	state = EnemyState.ATTACKING
 	#await(0.5)
 	#state = EnemyState.MOVABLE
-	anim_player.play("enemy_anims/attacking")
+	$AnimationPlayer.play("fire_enemy_anims/attacking")
 
 func _on_animation_finished(anim_name):
 	if state == EnemyState.ATTACKED:
+		sprite.play("idle")
+		sprite.stop()
+		sprite.frame = 0
 		print("Heater Fire finished being attacked")
 
 		state = EnemyState.MOVABLE
 	elif state == EnemyState.ATTACKING:
+		sprite.play("idle")
+		sprite.stop()
+		sprite.frame = 0
 		print("Heater Fire finished attacking")
 
 		state = EnemyState.MOVABLE

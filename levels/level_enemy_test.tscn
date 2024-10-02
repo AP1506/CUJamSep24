@@ -44,3 +44,6 @@ script = ExtResource("5_88mor")
 
 [node name="EnemyHeaterFire" parent="." instance=ExtResource("4_thunk")]
 position = Vector2(447.4, 1)
+
+[node name="EnemyHeaterFire2" parent="." instance=ExtResource("4_thunk")]
+position = Vector2(228.8, 0)
