@@ -47,14 +47,10 @@ func set_camera_limits():
 	camera.limit_right = map_limits.end.x * map_cellsize.x
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player.typingState == 0:
-		$ColorRect.visible = false
+	if player.state != Player.PlayerState.TYPING:
 		$Guidebook.visible = false
-	elif player.typingState == 1:
-		$ColorRect.visible = true
+	else:
 		$Guidebook.visible = true
-		
-	pass
 
 func _on_player_died():
 	game_over.bind("You died!").call_deferred()
@@ -63,6 +59,8 @@ func game_over(game_end_reason : String):
 	$World.process_mode = Node.PROCESS_MODE_DISABLED
 	$Popups/GameOver/BoxContainer/GameOverLabel.text = game_end_reason
 	$Popups/GameOver/BoxContainer/RetryButton.disabled = false
+	
+	curse_screen.take_down_screen()
 	
 	$Popups.visible = true
 	$Popups/GameOver.visible = true
@@ -100,6 +98,8 @@ func reload_level():
 		enemy.tree_exited.connect(_on_enemy_exited_tree)
 	
 	$World.process_mode = Node.PROCESS_MODE_INHERIT
+	
+	$AudioStreamPlayer.restart_playing()
 
 func load_next_level():
 	print("Loaded the next level ")
@@ -116,6 +116,9 @@ func _on_escaped(area: Node):
 		enemy.queue_free()
 
 func _on_enemy_exited_tree():
+	# This function also may be called when closing the window
+	if !get_tree():
+		return
 	if get_tree().get_node_count_in_group("enemies") > 0:
 			print("Enemies still exist on map")
 	else:
@@ -123,4 +126,5 @@ func _on_enemy_exited_tree():
 
 func _on_retry_button_pressed():
 	$Popups/GameOver/BoxContainer/RetryButton.disabled = true
-	reload_level()
+	$AudioStreamPlayer.stop_playing()
+	reload_level.call_deferred()

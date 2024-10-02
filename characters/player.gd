@@ -26,7 +26,6 @@ var state : PlayerState = PlayerState.MOVABLE:
 				set_process(true)
 				$AttackableArea.set_deferred("monitorable", true)
 				curse_controller.curse_state = CurseController.CurseState.ACTIVE
-				typingState = 0
 			PlayerState.ATTACKED:
 				set_physics_process(false)
 				set_process(false)
@@ -34,18 +33,15 @@ var state : PlayerState = PlayerState.MOVABLE:
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.text = ""
-				typingState = 0
 			PlayerState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
-				typingState = 0
 			PlayerState.TYPING:
 				set_physics_process(false)
 				set_process(false)
 				sprite.pause()
 				sprite.frame = 0
-				typingState = 1
 			PlayerState.DEAD:
 				set_physics_process(false)
 				set_process(false)
@@ -53,7 +49,6 @@ var state : PlayerState = PlayerState.MOVABLE:
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.text = ""
-				typingState = 0
 		state = value
 		print("player state is now " + PlayerState.keys()[value])
 
@@ -75,6 +70,8 @@ func new_level():
 	state = Player.PlayerState.MOVABLE
 	sprite.play("right")
 	sprite.stop()
+	anim_player.stop()
+	anim_player.seek(0)
 	
 	curse_controller.curse_state = CurseController.CurseState.ACTIVE
 	curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE

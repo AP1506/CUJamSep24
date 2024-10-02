@@ -81,7 +81,7 @@ func _input(event):
 			reset_slider(currentSlider)
 			set_next_element()
 
-# Set the drawing map to the one for the given curse
+# Set the drawing map to the one for the given curse and setup the screen
 func set_curse(curse: String):
 	# Remove existing drawing scenes
 	if get_child_count() > 0:
@@ -154,6 +154,11 @@ func set_curse(curse: String):
 			currentSlider.end_pressed.connect(_slider_end_pressed)
 	
 	set_process_unhandled_input(true)
+
+# Remove the curse_screen from view
+func take_down_screen():
+	set_process_unhandled_input(false)
+	make_visible(false)
 
 func make_visible(value):
 	visible = value
@@ -250,9 +255,8 @@ func update_accuracy(percent):
 	accuracy_label.text = "ACCURACY: " + String.num_int64(percent) + "%"
 
 func end_mini_game():
-	set_process_unhandled_input(false)
-	make_visible(false)
-
+	take_down_screen()
+	
 	# Turn on other processes
 	curse_controller.curse_state = curse_controller.CurseState.ACTIVE
 	world.process_mode = Node.PROCESS_MODE_INHERIT

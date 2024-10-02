@@ -21,7 +21,6 @@ tile_set = ExtResource("2_40tcw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EscapeZone"]
 position = Vector2(0.400001, 26.5)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_i8clr")
 
 [node name="EnemyCryingStudent" parent="." instance=ExtResource("4_l1bnw")]
