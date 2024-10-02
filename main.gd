@@ -30,6 +30,8 @@ var timer = 0:
 		time_label.text = "Time elapsed: " + String.num_int64(int(value) / 60) + ":" + ("0" if int(value) % 60 < 10 else "") + String.num_int64(int(value) % 60)
 var timer_on = true
 
+var loading_level : bool = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	player.reparent($World/SubViewport/Level)
@@ -78,7 +80,7 @@ func _on_player_died():
 	game_over.bind("You died!").call_deferred()
 
 # For winning and losing conditions
-func game_over(game_end_reason : String):
+func game_over(game_end_reason : String, success : bool = false):
 	$World.process_mode = Node.PROCESS_MODE_DISABLED
 	$Popups/GameOver/BoxContainer/GameOverLabel.text = game_end_reason
 	retry_button.disabled = false
@@ -88,14 +90,23 @@ func game_over(game_end_reason : String):
 	curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 	
 	time_elapsed_popup_label.text = "Time elapsed: " + String.num_int64(int(timer) / 60) + ":" + ("0" if int(timer) % 60 < 10 else "") + String.num_int64(int(timer) % 60)
-	if (timer < $"/root/GlobalVariables".level_information[current_level]["best_completion_time"]):
+	
+	var best_time = $"/root/GlobalVariables".level_information[current_level]["best_completion_time"]
+	
+	if (best_time == null or timer < best_time) and success:
 		$"/root/GlobalVariables".level_information[current_level]["best_completion_time"] = timer
+		best_time_label.text = "*Best Time: " + String.num_int64(int(timer) / 60) + ":" + ("0" if int(timer) % 60 < 10 else "") + String.num_int64(int(timer) % 60)
+	elif best_time == null:
+		best_time_label.text = "Best Time: Not completed"
+	else:
+		best_time_label.text = "Best Time: " + String.num_int64(int(best_time) / 60) + ":" + ("0" if int(best_time) % 60 < 10 else "") + String.num_int64(int(best_time) % 60)
 	
 	$Popups.visible = true
 	$Popups/GameOver.visible = true
 
 func load_level(level_number : int):
 	print("Loaded the level " + $"/root/GlobalVariables".level_information[level_number]["path"])
+	loading_level = true
 	
 	current_level = level_number
 	
@@ -131,6 +142,8 @@ func load_level(level_number : int):
 	
 	$AudioStreamPlayer.restart_playing()
 	
+	loading_level = false
+	
 	# Allow inputs
 	timer_on = true
 	curse_controller.curse_state = CurseController.CurseState.ACTIVE
@@ -155,14 +168,14 @@ func _on_escaped(area: Node):
 		enemy.queue_free()
 
 func _on_enemy_exited_tree():
-	# This function also may be called when closing the window
+	# This function also may be called when closing the window, loading the next level, and an enemy escaping
 	if !get_tree():
 		return
 	if get_tree().get_node_count_in_group("enemies") > 0:
 			print("Enemies still exist on map")
-	else:
+	elif not loading_level:
 			print("Cleared all enemies on the map")
-			game_over.bind("Success!").call_deferred()
+			game_over.bind("Success!", true).call_deferred()
 
 func _on_retry_button_pressed():
 	retry_button.disabled = true

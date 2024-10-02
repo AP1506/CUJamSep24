@@ -159,7 +159,6 @@ size_flags_vertical = 6
 text = "Time Elapsed: "
 
 [node name="BestTimeLabel" type="Label" parent="Popups/GameOver/BoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
