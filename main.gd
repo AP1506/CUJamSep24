@@ -30,12 +30,10 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if player.typingState == 0:
-		$ColorRect.visible = false
-		$Guidebook.visible = false
-	elif player.typingState == 1:
-		$ColorRect.visible = true
+	if player.state == Player.PlayerState.TYPING:
 		$Guidebook.visible = true
+	else:
+		$Guidebook.visible = false
 		
 	pass
 

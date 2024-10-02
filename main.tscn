@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=9 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
 [ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://assets/Guide.png" id="5_bn77j"]
 [ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdm7w"]
+bg_color = Color(0, 0, 0, 1)
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
@@ -36,15 +39,6 @@ render_target_update_mode = 4
 curse_screen = NodePath("../../../MiniGame/CurseScreen")
 curse_controller = NodePath("../../../CurseController")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-clip_contents = true
-custom_minimum_size = Vector2(100, 0)
-offset_left = 500.0
-offset_right = 650.0
-offset_bottom = 23.0
-color = Color(0, 0, 0, 1)
-
 [node name="Guidebook" type="TextureRect" parent="."]
 visible = false
 layout_direction = 1
@@ -69,6 +63,7 @@ grow_horizontal = 2
 editor_description = "Label for cursed typing"
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_sdm7w")
 text = "test text"
 uppercase = true
 
