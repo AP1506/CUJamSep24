@@ -8,6 +8,7 @@ enum EnemyState {MOVABLE, ATTACKED, ATTACKING, DEAD}
 var player : Node
 
 var direction : Vector2
+var animation_direction : String = "left"
 var attack_damage : int = 50
 var state : EnemyState = EnemyState.MOVABLE:
 	set(value):
@@ -46,7 +47,7 @@ func get_direction():
 func die():
 	state = EnemyState.DEAD
 	
-	anim_player.play("enemy_anims/dead_" + sprite.animation)
+	anim_player.play("enemy_anims/dead_" + animation_direction)
 	
 
 func _physics_process(delta):
@@ -61,12 +62,16 @@ func _process(delta):
 	if direction.length() > 0:
 		if direction.x < 0:
 			anim_player.play("enemy_anims/left")
+			animation_direction = "left"
 		elif direction.x > 0:
 			anim_player.play("enemy_anims/right")
+			animation_direction = "right"
 		elif direction.y > 0:
 			anim_player.play("enemy_anims/down")
+			animation_direction = "down"
 		elif direction.y < 0:
 			anim_player.play("enemy_anims/up")
+			animation_direction = "up"
 	else:
 		sprite.stop();
 
@@ -83,26 +88,32 @@ func _on_attacked(enemy_area : Area2D, attacker):
 	
 	dmg_label.text = String.num_int64(attacker.attack_damage)
 	
+	match attacker.curse_being_cast:
+		"tear":
+			player.heal(attacker.attack_damage if attacker.attack_damage <= health else health)
+		_:
+			pass
+	
 	health -= attacker.attack_damage
 	
 	if (health > 0):
-		anim_player.play("enemy_anims/attacked_" + sprite.animation)
+		anim_player.play("enemy_anims/attacked_" + animation_direction)
 	else:
 		die()
 
 func on_attacking():
 	state = EnemyState.ATTACKING
-	anim_player.play("enemy_anims/magic_" + sprite.animation)
+	anim_player.play("enemy_anims/magic_" + animation_direction)
 
 func _on_animation_finished(anim_name):
 	if state == EnemyState.ATTACKED:
-		sprite.play(sprite.animation.trim_prefix("attacked_"))
+		sprite.play(animation_direction)
 		sprite.stop()
 		sprite.frame = 0
 
 		state = EnemyState.MOVABLE
 	elif state == EnemyState.ATTACKING:
-		sprite.play(sprite.animation.trim_prefix("magic_"))
+		sprite.play(animation_direction)
 		sprite.stop()
 		sprite.frame = 0
 
