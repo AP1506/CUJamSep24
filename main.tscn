@@ -71,9 +71,13 @@ anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
 
-[node name="PlayerHealthLabel" type="Label" parent="UI2"]
+[node name="TimeLabel" type="Label" parent="UI2"]
 layout_mode = 2
 size_flags_horizontal = 10
+text = "Time Elapsed: 0:00"
+
+[node name="PlayerHealthLabel" type="Label" parent="UI2"]
+layout_mode = 2
 text = "Health: "
 
 [node name="EscapedLabel" type="Label" parent="UI2"]
@@ -124,7 +128,7 @@ grow_vertical = 2
 
 [node name="GameOver" type="PopupPanel" parent="Popups"]
 initial_position = 2
-size = Vector2i(200, 100)
+size = Vector2i(400, 200)
 
 [node name="BoxContainer" type="VBoxContainer" parent="Popups/GameOver"]
 anchors_preset = 15
@@ -143,11 +147,40 @@ size_flags_horizontal = 4
 size_flags_vertical = 6
 text = "Game Over!"
 
-[node name="RetryButton" type="Button" parent="Popups/GameOver/BoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Popups/GameOver/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="TimeElapsedLabel" type="Label" parent="Popups/GameOver/BoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Time Elapsed: "
+
+[node name="BestTimeLabel" type="Label" parent="Popups/GameOver/BoxContainer/HBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Best Time: "
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Popups/GameOver/BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+
+[node name="RetryButton" type="Button" parent="Popups/GameOver/BoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Retry?"
+
+[node name="NextLevelButton" type="Button" parent="Popups/GameOver/BoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Next Level"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_nw4j8")
@@ -155,4 +188,5 @@ volume_db = -16.865
 autoplay = true
 script = ExtResource("8_ekbtl")
 
-[connection signal="pressed" from="Popups/GameOver/BoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Popups/GameOver/BoxContainer/HBoxContainer2/RetryButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="Popups/GameOver/BoxContainer/HBoxContainer2/NextLevelButton" to="." method="_on_next_level_button_pressed"]

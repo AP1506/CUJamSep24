@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://caxyocq7s6q05"]
+[gd_scene load_steps=7 format=4 uid="uid://caxyocq7s6q05"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cuc7m"]
 [ext_resource type="TileSet" uid="uid://b5ur4cqn85i6h" path="res://assets/tile_sets/tunnels.tres" id="2_40tcw"]
@@ -7,6 +7,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8clr"]
 size = Vector2(2.8, 73)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f43hn"]
+size = Vector2(20, 64.4)
 
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
@@ -41,3 +44,10 @@ position = Vector2(42.5204, 32.681)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(42.52, 0)
 script = ExtResource("5_88mor")
+
+[node name="NextLevelZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelZone"]
+position = Vector2(1095.6, 32.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_f43hn")
