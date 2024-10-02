@@ -6,11 +6,17 @@ signal cast_curse(curse_name: String, damage: int)
 signal died
 
 @export var speed = 400
-@export var health = 400
+@export var init_health = 400
+var health : int:
+	set(value):
+		if value < 0:
+			value = 0
+		health = value
+		health_label.text = "Health: " + String.num_int64(health)
 
 @export var curse_screen : CurseScreen
 @export var curse_controller : CurseController
-@export var typingState = 0
+@export var health_label : Label
 
 var state : PlayerState = PlayerState.MOVABLE:
 	set(value):
@@ -20,7 +26,6 @@ var state : PlayerState = PlayerState.MOVABLE:
 				set_process(true)
 				$AttackableArea.set_deferred("monitorable", true)
 				curse_controller.curse_state = CurseController.CurseState.ACTIVE
-				typingState = 0
 			PlayerState.ATTACKED:
 				set_physics_process(false)
 				set_process(false)
@@ -28,18 +33,15 @@ var state : PlayerState = PlayerState.MOVABLE:
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.text = ""
-				typingState = 0
 			PlayerState.ATTACKING:
 				set_physics_process(false)
 				set_process(false)
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
-				typingState = 0
 			PlayerState.TYPING:
 				set_physics_process(false)
 				set_process(false)
 				sprite.pause()
 				sprite.frame = 0
-				typingState = 1
 			PlayerState.DEAD:
 				set_physics_process(false)
 				set_process(false)
@@ -47,7 +49,6 @@ var state : PlayerState = PlayerState.MOVABLE:
 				curse_controller.curse_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
 				curse_controller.text = ""
-				typingState = 0
 		state = value
 		print("player state is now " + PlayerState.keys()[value])
 
@@ -62,6 +63,19 @@ var attack_damage : int
 func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
 	anim_player.animation_finished.connect(_on_animation_finished)
+	health = init_health
+
+func new_level():
+	health = init_health
+	state = Player.PlayerState.MOVABLE
+	sprite.play("right")
+	sprite.stop()
+	anim_player.stop()
+	anim_player.seek(0)
+	
+	curse_controller.curse_state = CurseController.CurseState.ACTIVE
+	curse_controller.typing_state = CurseController.CurseState.NON_ACTIVE
+	curse_controller.text = ""
 
 func die():
 	state = PlayerState.DEAD
