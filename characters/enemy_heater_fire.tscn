@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cl2a8ppnd6r3s"]
+[gd_scene load_steps=10 format=3 uid="uid://cl2a8ppnd6r3s"]
 
 [ext_resource type="Script" path="res://characters/heater_fire.gd" id="1_b7bi2"]
 [ext_resource type="SpriteFrames" uid="uid://dffuxom33v30q" path="res://assets/characters/player.tres" id="2_4xs6o"]
@@ -6,11 +6,36 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf10s"]
 size = Vector2(18, 10)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tpyi"]
-size = Vector2(26, 29)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kxfec"]
 size = Vector2(18, 74)
+
+[sub_resource type="Animation" id="Animation_3lhye"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_vque5"]
+
+[sub_resource type="Animation" id="Animation_dpjuf"]
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e6hxw"]
+_data = {
+"attacking": SubResource("Animation_dpjuf"),
+"dead": SubResource("Animation_vque5"),
+"idle": SubResource("Animation_3lhye")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6tpyi"]
+size = Vector2(26, 29)
 
 [node name="EnemyHeaterFire" type="CharacterBody2D"]
 script = ExtResource("1_b7bi2")
@@ -30,8 +55,16 @@ offset_right = 31.0
 offset_bottom = 58.0
 scale = Vector2(0.44, 1.12)
 
+[node name="AttackArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
+position = Vector2(0, 26)
+shape = SubResource("RectangleShape2D_kxfec")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../AttackArea")
+libraries = {
+"enemy_anims": SubResource("AnimationLibrary_e6hxw")
+}
 
 [node name="AttackableArea" type="Area2D" parent="."]
 
@@ -43,9 +76,3 @@ shape = SubResource("RectangleShape2D_6tpyi")
 visible = false
 offset_right = 8.0
 offset_bottom = 23.0
-
-[node name="AttackArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(0, 26)
-shape = SubResource("RectangleShape2D_kxfec")

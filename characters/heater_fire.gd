@@ -3,7 +3,7 @@ extends Enemy
 func _ready():
 	add_to_group("enemies")
 	
-	#anim_player.animation_finished.connect(_on_animation_finished)
+	anim_player.animation_finished.connect(_on_animation_finished)
 
 # Should return a normalized vector
 func get_direction():
@@ -11,8 +11,7 @@ func get_direction():
 
 func die():
 	state = EnemyState.DEAD
-	queue_free()
-	#anim_player.play("enemy_anims/dead_" + sprite.animation)
+	anim_player.play("enemy_anims/dead")
 
 func _physics_process(delta):
 	pass
@@ -36,32 +35,26 @@ func _on_attacked(enemy_area : Area2D, attacker):
 	health -= attacker.attack_damage
 	
 	if (health > 0):
-		#anim_player.play("enemy_anims/attacked_" + sprite.animation)
+		anim_player.play("enemy_anims/attacked")
 		print("Heater Fire alive with "+str(health)+" HP")
 	else:
-		print("Heater Fire killed.")
 		die()
 
 func on_attacking():
 	state = EnemyState.ATTACKING
-	await(0.5)
-	state = EnemyState.MOVABLE
-	#anim_player.play("enemy_anims/magic_" + sprite.animation)
+	#await(0.5)
+	#state = EnemyState.MOVABLE
+	anim_player.play("enemy_anims/attacking")
 
 func _on_animation_finished(anim_name):
 	if state == EnemyState.ATTACKED:
-		#sprite.play(sprite.animation.trim_prefix("attacked_"))
-		#sprite.stop()
-		#sprite.frame = 0
-		print("attacked")
+		print("Heater Fire finished being attacked")
 
 		state = EnemyState.MOVABLE
 	elif state == EnemyState.ATTACKING:
-		#sprite.play(sprite.animation.trim_prefix("magic_"))
-		#sprite.stop()
-		#sprite.frame = 0
-		print("attacking")
+		print("Heater Fire finished attacking")
 
 		state = EnemyState.MOVABLE
 	elif state == EnemyState.DEAD:
+		print("Heater Fire killed.")
 		queue_free()
