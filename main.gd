@@ -45,6 +45,16 @@ func set_camera_limits():
 	var map_cellsize = Vector2($World/SubViewport/Level/TileMapLayer.tile_set.tile_size) * $World/SubViewport/Level.scale
 	camera.limit_left = map_limits.position.x * map_cellsize.x
 	camera.limit_right = map_limits.end.x * map_cellsize.x
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if player.typingState == 0:
+		$ColorRect.visible = false
+		$Guidebook.visible = false
+	elif player.typingState == 1:
+		$ColorRect.visible = true
+		$Guidebook.visible = true
+		
+	pass
 
 func _on_player_died():
 	game_over.bind("You died!").call_deferred()

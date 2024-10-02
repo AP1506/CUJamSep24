@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=8 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
 [ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
 [ext_resource type="PackedScene" uid="uid://caxyocq7s6q05" path="res://levels/level_enemy_test.tscn" id="3_f7sl7"]
 [ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
+[ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://assets/Guide.png" id="5_bn77j"]
+[ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
@@ -35,9 +37,32 @@ curse_screen = NodePath("../../../MiniGame/CurseScreen")
 curse_controller = NodePath("../../../CurseController")
 health_label = NodePath("../../../UI2/PlayerHealthLabel")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+clip_contents = true
+custom_minimum_size = Vector2(100, 0)
+offset_left = 500.0
+offset_right = 650.0
+offset_bottom = 23.0
+color = Color(0, 0, 0, 1)
+
+[node name="Guidebook" type="TextureRect" parent="."]
+visible = false
+layout_direction = 1
+offset_left = 23.0
+offset_top = 11.0
+offset_right = 337.0
+offset_bottom = 325.0
+texture = ExtResource("5_bn77j")
+expand_mode = 1
+stretch_mode = 4
+
 [node name="UI" type="BoxContainer" parent="."]
-anchors_preset = 10
-anchor_right = 1.0
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -41.0
+offset_right = 41.0
 offset_bottom = 23.0
 grow_horizontal = 2
 
@@ -115,8 +140,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_right = 196.0
+offset_bottom = 96.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -131,5 +156,10 @@ layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
 text = "Retry?"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_nw4j8")
+volume_db = -16.865
+autoplay = true
 
 [connection signal="pressed" from="Popups/GameOver/BoxContainer/RetryButton" to="." method="_on_retry_button_pressed"]
