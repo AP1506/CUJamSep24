@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=13 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
@@ -6,11 +6,20 @@
 [ext_resource type="PackedScene" path="res://levels/level_1.tscn" id="3_2dgmm"]
 [ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
 [ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://assets/Guide.png" id="5_bn77j"]
+[ext_resource type="FontFile" uid="uid://b8vedtoclr3em" path="res://assets/UI/BlackAndWhitePicture-Regular.ttf" id="6_0imi3"]
 [ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
+[ext_resource type="FontFile" uid="uid://cyig6yseuu10w" path="res://assets/UI/PixelifySans-Regular.ttf" id="7_61okn"]
+[ext_resource type="Theme" uid="uid://d2kj3yq1kjxtw" path="res://assets/UI/basic_pixel.tres" id="8_8q3ri"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="8_ekbtl"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdm7w"]
-bg_color = Color(0, 0, 0, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7i58"]
+bg_color = Color(0.619608, 0.556863, 0.8, 0.337255)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+expand_margin_left = 11.0
+expand_margin_right = 11.0
 
 [node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
@@ -65,7 +74,10 @@ grow_horizontal = 2
 editor_description = "Label for cursed typing"
 layout_mode = 2
 size_flags_horizontal = 6
-theme_override_styles/normal = SubResource("StyleBoxFlat_sdm7w")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_0imi3")
+theme_override_font_sizes/font_size = 78
+theme_override_styles/normal = SubResource("StyleBoxFlat_y7i58")
 text = "test text"
 uppercase = true
 
@@ -74,18 +86,22 @@ anchors_preset = 10
 anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme = ExtResource("8_8q3ri")
 
 [node name="TimeLabel" type="Label" parent="UI2"]
 layout_mode = 2
 size_flags_horizontal = 10
+theme = ExtResource("8_8q3ri")
 text = "Time Elapsed: 0:00"
 
 [node name="PlayerHealthLabel" type="Label" parent="UI2"]
 layout_mode = 2
+theme = ExtResource("8_8q3ri")
 text = "Health: "
 
 [node name="EscapedLabel" type="Label" parent="UI2"]
 layout_mode = 2
+theme = ExtResource("8_8q3ri")
 text = "Escaped:"
 
 [node name="MiniGame" type="Node" parent="."]
@@ -130,25 +146,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="GameOver" type="PopupPanel" parent="Popups"]
-initial_position = 2
-size = Vector2i(400, 200)
+[node name="GameOver" type="PanelContainer" parent="Popups"]
+visible = false
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme = ExtResource("8_8q3ri")
 
 [node name="BoxContainer" type="VBoxContainer" parent="Popups/GameOver"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 2
 
 [node name="GameOverLabel" type="Label" parent="Popups/GameOver/BoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+theme_override_fonts/font = ExtResource("7_61okn")
+theme_override_font_sizes/font_size = 30
 text = "Game Over!"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Popups/GameOver/BoxContainer"]
@@ -160,12 +174,14 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme = ExtResource("8_8q3ri")
 text = "Time Elapsed: "
 
 [node name="BestTimeLabel" type="Label" parent="Popups/GameOver/BoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme = ExtResource("8_8q3ri")
 text = "Best Time: "
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="Popups/GameOver/BoxContainer"]
@@ -183,12 +199,14 @@ text = "Previous Level"
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 6
+theme = ExtResource("8_8q3ri")
 text = "Retry?"
 
 [node name="NextLevelButton" type="Button" parent="Popups/GameOver/BoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("8_8q3ri")
 text = "Next Level"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
