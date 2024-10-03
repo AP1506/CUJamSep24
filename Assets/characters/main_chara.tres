@@ -1,8 +1,8 @@
 [gd_resource type="SpriteFrames" load_steps=41 format=3 uid="uid://cua6ykgqqug2o"]
 
-[ext_resource type="Texture2D" uid="uid://6t5bkdqg050y" path="res://assets/characters/mc_run.png" id="1_kmovm"]
-[ext_resource type="Texture2D" uid="uid://cf8a40fq62fm0" path="res://assets/characters/Sorcerer_cast.png" id="2_ssoqc"]
-[ext_resource type="Texture2D" uid="uid://btjyy22832prv" path="res://assets/characters/Sorcerer_melee.png" id="3_xegmr"]
+[ext_resource type="Texture2D" uid="uid://6t5bkdqg050y" path="res://Assets/characters/mc_run.png" id="1_kmovm"]
+[ext_resource type="Texture2D" uid="uid://cf8a40fq62fm0" path="res://Assets/characters/Sorcerer_cast.png" id="2_ssoqc"]
+[ext_resource type="Texture2D" uid="uid://btjyy22832prv" path="res://Assets/characters/Sorcerer_melee.png" id="3_xegmr"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mrp2a"]
 atlas = ExtResource("1_kmovm")

@@ -9,11 +9,24 @@ var dir_to_v = {"left" : Vector2(-1, 0),
 				"up"   : Vector2(0, -1)}
 
 # Game Information
-var level_information = {1: {"path": "res://levels/level_enemy_test.tscn",
+var level_information = {1: {"path": "res://levels/level_1.tscn",
+							 "best_enemies_escaped": 0,
+							 "best_completion_time": null,
+							 "escapes_allowed": 2},
+						 2: {"path": "res://levels/level_2.tscn",
+							 "best_enemies_escaped": 0,
+							 "best_completion_time": null,
+							 "escapes_allowed": 1},
+						3: {"path": "res://levels/level_3.tscn",
+							 "best_enemies_escaped": 0,
+							 "best_completion_time": null,
+							 "escapes_allowed": 1},
+						4: {"path": "res://levels/level_4.tscn",
 							 "best_enemies_escaped": 0,
 							 "best_completion_time": null,
 							 "escapes_allowed": 0},
-						 2: {"path": "res://levels/level_enemy_test.tscn",
+						5: {"path": "res://levels/level_5.tscn",
 							 "best_enemies_escaped": 0,
 							 "best_completion_time": null,
 							 "escapes_allowed": 0},}
+							

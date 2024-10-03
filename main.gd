@@ -154,7 +154,7 @@ func reload_level():
 
 func load_next_level():
 	print("Loaded the next level ")
-	load_level(current_level + 1 if $"/root/GlobalVariables".level_information.keys().size() < current_level else current_level)
+	load_level(current_level + 1 if $"/root/GlobalVariables".level_information.keys().size() > current_level + 1 else current_level)
 
 func _on_escaped(area: Node):
 	if area.get_parent() is Enemy:

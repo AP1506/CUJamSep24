@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d0iwbavtvc1sw"
-path="res://.godot/imported/HexedHallwaysLogo.png-b5a6731293a3f6c507f849f9dd38e5e3.ctex"
+path="res://.godot/imported/HexedHallwaysLogo.png-89035968e0d446b83797ef58f45517c0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/main_menu/HexedHallwaysLogo.png"
-dest_files=["res://.godot/imported/HexedHallwaysLogo.png-b5a6731293a3f6c507f849f9dd38e5e3.ctex"]
+source_file="res://Assets/main_menu/HexedHallwaysLogo.png"
+dest_files=["res://.godot/imported/HexedHallwaysLogo.png-89035968e0d446b83797ef58f45517c0.ctex"]
 
 [params]
 

@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=10 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
 [ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
-[ext_resource type="PackedScene" uid="uid://caxyocq7s6q05" path="res://levels/level_enemy_test.tscn" id="3_f7sl7"]
+[ext_resource type="PackedScene" uid="uid://bpgla38tg3fbe" path="res://levels/level_1.tscn" id="3_2dgmm"]
 [ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
-[ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://assets/Guide.png" id="5_bn77j"]
-[ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
+[ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://Assets/Guide.png" id="5_bn77j"]
+[ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://Assets/music/Fight Song.wav" id="6_nw4j8"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="8_ekbtl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdm7w"]
@@ -34,7 +34,7 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(1152, 648)
 render_target_update_mode = 4
 
-[node name="Level" parent="World/SubViewport" instance=ExtResource("3_f7sl7")]
+[node name="Level" parent="World/SubViewport" instance=ExtResource("3_2dgmm")]
 
 [node name="Player" parent="World/SubViewport" node_paths=PackedStringArray("curse_screen", "curse_controller", "health_label") instance=ExtResource("4_65u8e")]
 curse_screen = NodePath("../../../MiniGame/CurseScreen")
@@ -140,8 +140,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 4.0
 offset_top = 4.0
-offset_right = -4.0
-offset_bottom = -4.0
+offset_right = 396.0
+offset_bottom = 196.0
 grow_horizontal = 2
 grow_vertical = 2
 
