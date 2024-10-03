@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dbhbfm64pgggq"
-path="res://.godot/imported/mc_hex_fire_R.png-1b1bee1adde70ecaf25c6d4fa9ca5011.ctex"
+path="res://.godot/imported/mc_hex_fire_R.png-f43dc1f4b72273040f45ecf6a2356f01.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/characters/hex_animations/mc_hex_fire_R.png"
-dest_files=["res://.godot/imported/mc_hex_fire_R.png-1b1bee1adde70ecaf25c6d4fa9ca5011.ctex"]
+source_file="res://assets/characters/hex_animations/mc_hex_fire_R.png"
+dest_files=["res://.godot/imported/mc_hex_fire_R.png-f43dc1f4b72273040f45ecf6a2356f01.ctex"]
 
 [params]
 
