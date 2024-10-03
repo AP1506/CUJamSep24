@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cl2a8ppnd6r3s"]
 
 [ext_resource type="Script" path="res://characters/heater_fire.gd" id="1_b7bi2"]
-[ext_resource type="SpriteFrames" uid="uid://cnid80d5wie7s" path="res://assets/characters/heater_fire.tres" id="2_ml32x"]
+[ext_resource type="SpriteFrames" uid="uid://2favwcwj7jx4" path="res://Assets/characters/heater_fire.tres" id="2_ml32x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf10s"]
 size = Vector2(18, 11)
@@ -22,6 +22,18 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("DmgLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_08oy4"]
@@ -85,6 +97,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(),
 "update": 1,
 "values": []
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("DmgLabel:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.266667, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_3lhye"]
