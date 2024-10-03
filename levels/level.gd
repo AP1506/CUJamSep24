@@ -4,6 +4,7 @@ class_name Level extends Node2D
 @onready var escape_zone = $EscapeZone
 @onready var camera = $Camera2D
 @onready var tile_map = $TileMapLayer
+@onready var next_level_zone = $NextLevelZone
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
