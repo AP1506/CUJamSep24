@@ -9,6 +9,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_i8clr"]
 size = Vector2(2.8, 73)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f43hn"]
+size = Vector2(20, 64.4)
+
 [node name="Level" type="Node2D"]
 y_sort_enabled = true
 scale = Vector2(5, 5)
@@ -43,6 +46,12 @@ position = Vector2(42.5204, 32.681)
 position = Vector2(42.52, 0)
 script = ExtResource("5_88mor")
 
+[node name="NextLevelZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelZone"]
+position = Vector2(1095.6, 32.4)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_f43hn")
 [node name="EnemyHeaterFire" parent="." instance=ExtResource("4_thunk")]
 position = Vector2(447.4, 1)
 
