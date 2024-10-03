@@ -188,7 +188,6 @@ func _on_retry_button_pressed():
 
 
 func _on_next_level_button_pressed():
-	
 	load_next_level.call_deferred()
 
 

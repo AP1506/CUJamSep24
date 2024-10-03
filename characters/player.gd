@@ -143,25 +143,25 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 			if accuracy >= 25:
 				damage = 100
 				attack_damage = damage - damage * ((100 - accuracy) * 0.66 / 100.0)
+				anim_player.play("player_curse_anims/ward_" + animation_direction) # Temp
 			else:
 				success = false
 		"tear":
 			if accuracy >= 50:
 				damage = 25
 				attack_damage = damage - damage * ((100 - accuracy) * 0.6 / 100.0)
+				anim_player.play("player_curse_anims/magic_" + animation_direction) # Temp
 			else:
 				success = false
 		"east":
 			if accuracy >= 50:
 				damage = 20
 				attack_damage = damage - damage * ((100 - accuracy) * 0.6 / 100.0)
+				anim_player.play("player_curse_anims/magic_" + animation_direction) # Temp
 		_:
 			push_error("Cast unknown curse, " + curse_name)
 	
-	if success:
-		anim_player.play("player_curse_anims/magic_" + animation_direction) # Temp
-		#anim_player.play("player_curse_anims/" + curse_name + "_" + animation_direction)
-	else:
+	if not success:
 		anim_player.play("player_curse_anims/failed_spell")
 
 func heal(heal : int):
@@ -195,7 +195,7 @@ func _on_attacked(playerArea : Area2D, attacker):
 
 func _on_animation_finished(anim_name):
 	print(anim_name)
-	if state == PlayerState.ATTACKING and ("magic_" in anim_name || "failed_spell" in anim_name):
+	if state == PlayerState.ATTACKING and ("magic_" in anim_name || "failed_spell" in anim_name || curse_being_cast in anim_name):
 		sprite.offset = init_offset
 		anim_player.play("player_curse_anims/RESET")
 		sprite.play(animation_direction)
