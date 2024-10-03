@@ -156,6 +156,10 @@ func load_next_level():
 	print("Loaded the next level ")
 	load_level(current_level + 1 if $"/root/GlobalVariables".level_information.keys().size() > current_level + 1 else current_level)
 
+func load_previous_level():
+	print("Loaded the previous level ")
+	load_level(current_level - 1 if current_level - 1 > 0 else current_level)
+
 func _on_escaped(area: Node):
 	if area.get_parent() is Enemy:
 		var enemy : Enemy = area.get_parent()
@@ -184,5 +188,8 @@ func _on_retry_button_pressed():
 
 
 func _on_next_level_button_pressed():
-	
 	load_next_level.call_deferred()
+
+
+func _on_previous_level_button_pressed():
+	load_previous_level.call_deferred()
