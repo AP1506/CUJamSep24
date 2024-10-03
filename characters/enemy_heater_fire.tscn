@@ -1,7 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://cl2a8ppnd6r3s"]
 
 [ext_resource type="Script" path="res://characters/heater_fire.gd" id="1_b7bi2"]
-[ext_resource type="SpriteFrames" uid="uid://cnid80d5wie7s" path="res://Assets/characters/heater_fire.tres" id="2_ml32x"]
+[ext_resource type="SpriteFrames" uid="uid://2favwcwj7jx4" path="res://Assets/characters/heater_fire.tres" id="2_ml32x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vf10s"]
 size = Vector2(18, 11)
