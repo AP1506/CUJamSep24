@@ -5,14 +5,23 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhh47"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iufj4"]
-bg_color = Color(0.118949, 0.0413803, 0.172279, 1)
+bg_color = Color(0.215138, 0.0951057, 0.297765, 1)
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utedp"]
-bg_color = Color(0.170446, 0.104853, 0.254999, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ot15e"]
+bg_color = Color(0.215138, 0.0951057, 0.297765, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
 
 [resource]
 default_font = ExtResource("1_0yn0y")
@@ -21,4 +30,5 @@ default_font_size = 20
 BoxContainer/constants/separation = 25
 Button/styles/hover = SubResource("StyleBoxFlat_fhh47")
 Button/styles/normal = SubResource("StyleBoxFlat_iufj4")
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_utedp")
+Label/constants/outline_size = 4
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ot15e")
