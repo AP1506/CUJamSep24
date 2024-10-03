@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bov4b08mbintg"
-path="res://.godot/imported/mc_run_L1.png-a7fbe4a65fd711ffc33a4335affb42fc.ctex"
+uid="uid://du8ap5p1b2qj1"
+path="res://.godot/imported/mc_hex_fire_U.png-7c3fcc787b1d55e0e898713f3405070c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/Run/mc_run_L/mc_run_L1.png"
-dest_files=["res://.godot/imported/mc_run_L1.png-a7fbe4a65fd711ffc33a4335affb42fc.ctex"]
+source_file="res://Assets/characters/hex_animations/mc_hex_fire_U.png"
+dest_files=["res://.godot/imported/mc_hex_fire_U.png-7c3fcc787b1d55e0e898713f3405070c.ctex"]
 
 [params]
 

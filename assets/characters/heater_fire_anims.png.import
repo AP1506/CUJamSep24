@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cem2r4rypunr1"
-path="res://.godot/imported/heater_fire_anims.png-6c5997bb6f7bf1c154dad1d5ad87e1a7.ctex"
+path="res://.godot/imported/heater_fire_anims.png-65acf6f34f15954a601a71854cf35b56.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/characters/heater_fire_anims.png"
-dest_files=["res://.godot/imported/heater_fire_anims.png-6c5997bb6f7bf1c154dad1d5ad87e1a7.ctex"]
+source_file="res://Assets/characters/heater_fire_anims.png"
+dest_files=["res://.godot/imported/heater_fire_anims.png-65acf6f34f15954a601a71854cf35b56.ctex"]
 
 [params]
 
