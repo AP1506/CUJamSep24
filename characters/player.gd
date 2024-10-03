@@ -56,6 +56,7 @@ var state : PlayerState = PlayerState.MOVABLE:
 
 var curse_being_cast : String
 var attack_damage : int
+
 var animation_direction : String = "left"
 
 @onready var sprite = $AnimatedSprite2D
@@ -67,6 +68,8 @@ func _ready():
 	curse_screen.curse_casted.connect(_on_curse_casted)
 	anim_player.animation_finished.connect(_on_animation_finished)
 	health = init_health
+	
+	animation_direction = sprite.animation
 
 func new_level():
 	health = init_health
@@ -145,6 +148,10 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 				attack_damage = damage - damage * ((100 - accuracy) * 0.6 / 100.0)
 			else:
 				success = false
+		"east":
+			if accuracy >= 50:
+				damage = 20
+				attack_damage = damage - damage * ((100 - accuracy) * 0.6 / 100.0)
 		_:
 			push_error("Cast unknown curse, " + curse_name)
 	
