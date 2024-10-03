@@ -1,6 +1,6 @@
 [gd_scene load_steps=30 format=3 uid="uid://b4oagoyytxykj"]
 
-[ext_resource type="SpriteFrames" uid="uid://dffuxom33v30q" path="res://Assets/characters/player.tres" id="1_malgy"]
+[ext_resource type="SpriteFrames" uid="uid://dffuxom33v30q" path="res://assets/characters/player.tres" id="1_malgy"]
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_p3wl2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mj1b"]

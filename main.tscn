@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]
 [ext_resource type="PackedScene" uid="uid://cfw05jiujfnc7" path="res://curse_casting/Scenes/curse_screen.tscn" id="3_0ite1"]
-[ext_resource type="PackedScene" uid="uid://bpgla38tg3fbe" path="res://levels/level_1.tscn" id="3_2dgmm"]
+[ext_resource type="PackedScene" path="res://levels/level_1.tscn" id="3_2dgmm"]
 [ext_resource type="PackedScene" uid="uid://b4qayqdeo5jbx" path="res://characters/player.tscn" id="4_65u8e"]
-[ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://Assets/Guide.png" id="5_bn77j"]
-[ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://Assets/music/Fight Song.wav" id="6_nw4j8"]
+[ext_resource type="Texture2D" uid="uid://xojbifd5hl73" path="res://assets/Guide.png" id="5_bn77j"]
+[ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="8_ekbtl"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdm7w"]
