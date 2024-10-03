@@ -155,11 +155,12 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 				success = false
 		"east":
 			if accuracy >= 50:
-				damage = 20
+				damage = 30
 				attack_damage = damage - damage * ((100 - accuracy) * 0.6 / 100.0)
 				anim_player.play("player_curse_anims/magic_" + animation_direction) # Temp
 		_:
 			push_error("Cast unknown curse, " + curse_name)
+			success = false
 	
 	if not success:
 		anim_player.play("player_curse_anims/failed_spell")

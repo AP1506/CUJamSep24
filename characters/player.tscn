@@ -48,6 +48,18 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector2(0, -11)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SpellArea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_r8g14"]
 _data = {
@@ -72,6 +84,7 @@ animation = &"right"
 offset = Vector2(0, -11)
 
 [node name="SpellArea" type="Area2D" parent="."]
+monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpellArea"]

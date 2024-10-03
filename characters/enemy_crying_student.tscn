@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://b4oagoyytxykj"]
+[gd_scene load_steps=34 format=3 uid="uid://b4oagoyytxykj"]
 
 [ext_resource type="SpriteFrames" uid="uid://dffuxom33v30q" path="res://assets/characters/player.tres" id="1_malgy"]
 [ext_resource type="Script" path="res://characters/enemy.gd" id="1_p3wl2"]
@@ -600,6 +600,74 @@ tracks/0/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_fgljv"]
+resource_name = "pushed_down"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attacked_down", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_nnoum"]
+resource_name = "pushed_left"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attacked_left", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_f678g"]
+resource_name = "pushed_right"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attacked_right", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_c2v65"]
+resource_name = "pushed_up"
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"attacked_up", 1.0, false],
+"method": &"play"
+}]
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ur6ji"]
 size = Vector2(15, 7.6875)
 
@@ -729,6 +797,10 @@ _data = {
 "magic_left": SubResource("Animation_qs4qf"),
 "magic_right": SubResource("Animation_elv6d"),
 "magic_up": SubResource("Animation_7vho6"),
+"pushed_down": SubResource("Animation_fgljv"),
+"pushed_left": SubResource("Animation_nnoum"),
+"pushed_right": SubResource("Animation_f678g"),
+"pushed_up": SubResource("Animation_c2v65"),
 "right": SubResource("Animation_58d5w"),
 "up": SubResource("Animation_r4u1f")
 }

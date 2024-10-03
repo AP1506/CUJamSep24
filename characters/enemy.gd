@@ -83,8 +83,6 @@ func _physics_process(delta):
 		move_and_collide(velocity * delta)
 		
 		pushed += (position - previous_position).length()
-		print(pushed)
-		print(push)
 		
 		previous_position = position
 		
@@ -130,18 +128,27 @@ func _on_attacked(enemy_area : Area2D, attacker):
 		"tear":
 			player.heal(attacker.attack_damage if attacker.attack_damage <= health else health)
 			health -= attacker.attack_damage
+			
+			if (health > 0):
+				anim_player.play("enemy_anims/attacked_" + animation_direction)
+			else:
+				die()
 		"east":
 			pushed_direction = $"/root/GlobalVariables".dir_to_v[attacker.animation_direction]
 			push = attacker.attack_damage
 			
 			move_state = EnemyMove.PUSHED
+			
+			if (health > 0):
+				anim_player.play("enemy_anims/pushed_" + animation_direction)
+			else:
+				die()
 		_:
 			health -= attacker.attack_damage
-	
-	if (health > 0):
-		anim_player.play("enemy_anims/attacked_" + animation_direction)
-	else:
-		die()
+			if (health > 0):
+				anim_player.play("enemy_anims/attacked_" + animation_direction)
+			else:
+				die()
 
 func on_attacking():
 	state = EnemyState.ATTACKING
