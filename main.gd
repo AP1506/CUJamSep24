@@ -173,7 +173,7 @@ func _on_enemy_exited_tree():
 		return
 	if get_tree().get_node_count_in_group("enemies") > 0:
 			print("Enemies still exist on map")
-	elif not loading_level:
+	elif not loading_level and enemies_escaped <= $"/root/GlobalVariables".level_information[current_level]["escapes_allowed"]:
 			print("Cleared all enemies on the map")
 			game_over.bind("Success!", true).call_deferred()
 
