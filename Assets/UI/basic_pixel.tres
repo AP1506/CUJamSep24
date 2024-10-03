@@ -1,0 +1,24 @@
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://d2kj3yq1kjxtw"]
+
+[ext_resource type="FontFile" uid="uid://cyig6yseuu10w" path="res://assets/UI/PixelifySans-Regular.ttf" id="1_0yn0y"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhh47"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_iufj4"]
+bg_color = Color(0.118949, 0.0413803, 0.172279, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_utedp"]
+bg_color = Color(0.170446, 0.104853, 0.254999, 1)
+
+[resource]
+default_font = ExtResource("1_0yn0y")
+default_font_size = 20
+/fonts/PixelFont = ExtResource("1_0yn0y")
+BoxContainer/constants/separation = 25
+Button/styles/hover = SubResource("StyleBoxFlat_fhh47")
+Button/styles/normal = SubResource("StyleBoxFlat_iufj4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_utedp")
