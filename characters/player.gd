@@ -57,6 +57,7 @@ var state : PlayerState = PlayerState.MOVABLE:
 var curse_being_cast : String
 var attack_damage : int
 
+var init_offset : Vector2
 var animation_direction : String = "left"
 
 @onready var sprite = $AnimatedSprite2D
@@ -70,6 +71,8 @@ func _ready():
 	health = init_health
 	
 	animation_direction = sprite.animation
+	
+	init_offset = sprite.offset
 
 func new_level():
 	health = init_health
@@ -159,7 +162,7 @@ func _on_curse_casted(curse_name: String, accuracy: int):
 		anim_player.play("player_curse_anims/magic_" + animation_direction) # Temp
 		#anim_player.play("player_curse_anims/" + curse_name + "_" + animation_direction)
 	else:
-		anim_player.play("player_curse_anims/failed_spell_left")
+		anim_player.play("player_curse_anims/failed_spell")
 
 func heal(heal : int):
 	health += heal
@@ -193,6 +196,7 @@ func _on_attacked(playerArea : Area2D, attacker):
 func _on_animation_finished(anim_name):
 	print(anim_name)
 	if state == PlayerState.ATTACKING and ("magic_" in anim_name || "failed_spell" in anim_name):
+		sprite.offset = init_offset
 		anim_player.play("player_curse_anims/RESET")
 		sprite.play(animation_direction)
 		sprite.stop()
