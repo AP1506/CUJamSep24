@@ -9,6 +9,9 @@
 [ext_resource type="AudioStream" uid="uid://cly36utp2imlr" path="res://assets/music/Fight Song.wav" id="6_nw4j8"]
 [ext_resource type="Script" path="res://audio_stream_player.gd" id="8_ekbtl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sdm7w"]
+bg_color = Color(0, 0, 0, 1)
+
 [node name="Main" type="Node"]
 script = ExtResource("1_ek3vr")
 
@@ -62,6 +65,7 @@ grow_horizontal = 2
 editor_description = "Label for cursed typing"
 layout_mode = 2
 size_flags_horizontal = 6
+theme_override_styles/normal = SubResource("StyleBoxFlat_sdm7w")
 text = "test text"
 uppercase = true
 
