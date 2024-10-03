@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=4 uid="uid://caxyocq7s6q05"]
+[gd_scene load_steps=8 format=4 uid="uid://caxyocq7s6q05"]
 
 [ext_resource type="Script" path="res://levels/level.gd" id="1_cuc7m"]
 [ext_resource type="TileSet" uid="uid://b5ur4cqn85i6h" path="res://assets/tile_sets/tunnels.tres" id="2_40tcw"]
@@ -50,8 +50,8 @@ script = ExtResource("5_88mor")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevelZone"]
 position = Vector2(1095.6, 32.4)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_f43hn")
+
 [node name="EnemyHeaterFire" parent="." instance=ExtResource("4_thunk")]
 position = Vector2(447.4, 1)
 

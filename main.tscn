@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ox7pjwuvkx1c"]
+[gd_scene load_steps=10 format=3 uid="uid://ox7pjwuvkx1c"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_ek3vr"]
 [ext_resource type="PackedScene" uid="uid://bfitc7nf8btyu" path="res://curse_casting/Scenes/curse_controller.tscn" id="2_f20hy"]

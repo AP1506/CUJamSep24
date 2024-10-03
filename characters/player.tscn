@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://b4qayqdeo5jbx"]
 
 [ext_resource type="Script" path="res://characters/player.gd" id="1_p5ask"]
-[ext_resource type="SpriteFrames" uid="uid://cua6ykgqqug2o" path="res://Assets/characters/main_chara.tres" id="2_xyj4k"]
-[ext_resource type="AnimationLibrary" uid="uid://irqfihdn0bqm" path="res://Assets/characters/player_curse_anims.res" id="3_jqbnj"]
+[ext_resource type="SpriteFrames" uid="uid://cua6ykgqqug2o" path="res://assets/characters/main_chara.tres" id="2_xyj4k"]
+[ext_resource type="AnimationLibrary" uid="uid://irqfihdn0bqm" path="res://assets/characters/player_curse_anims.res" id="3_jqbnj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ahii2"]
 size = Vector2(10.4, 2)
@@ -68,7 +68,7 @@ shape = SubResource("RectangleShape2D_ahii2")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0.2, -5.4)
 sprite_frames = ExtResource("2_xyj4k")
-animation = &"magic_left"
+animation = &"right"
 offset = Vector2(0, -11)
 
 [node name="SpellArea" type="Area2D" parent="."]
