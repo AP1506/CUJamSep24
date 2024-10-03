@@ -173,6 +173,12 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
 
+[node name="PreviousLevelButton" type="Button" parent="Popups/GameOver/BoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+text = "Previous Level"
+
 [node name="RetryButton" type="Button" parent="Popups/GameOver/BoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -191,5 +197,6 @@ volume_db = -16.865
 autoplay = true
 script = ExtResource("8_ekbtl")
 
+[connection signal="pressed" from="Popups/GameOver/BoxContainer/HBoxContainer2/PreviousLevelButton" to="." method="_on_previous_level_button_pressed"]
 [connection signal="pressed" from="Popups/GameOver/BoxContainer/HBoxContainer2/RetryButton" to="." method="_on_retry_button_pressed"]
 [connection signal="pressed" from="Popups/GameOver/BoxContainer/HBoxContainer2/NextLevelButton" to="." method="_on_next_level_button_pressed"]
